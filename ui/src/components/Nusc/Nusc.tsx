@@ -30,8 +30,9 @@ const TextRow = (props: TextRowProps) => {
     props.text.indexOf("|") !== -1
       ? props.text.indexOf("|")
       : Math.ceil(props.text.length / 2);
-  const leftText = props.text.replaceAll("|", "").substring(0, textLength);
-  const rightText = props.text.replaceAll("|", "").substring(textLength);
+  const formattedText = props.text.replaceAll("|", "").replaceAll("-", " ")
+  const leftText = formattedText.substring(0, textLength);
+  const rightText = formattedText.substring(textLength);
   return (
     <>
       <Grid item xs={6} sx={textboxContainerLeftStyle}>
@@ -50,7 +51,7 @@ const TextRow = (props: TextRowProps) => {
 
 export const Nusc = () => {
   const [flipflop, setFlipflop] = useState(true);
-  const [text, setText] = useState("BREAK OPEN THE CLASSROOM");
+  const [text, setText] = useState("EVERYWHERE THE-LIGHT TO|UCHES IS-OUR-|KINGDOM");
 
   const handleChange = (event: any) => {
     setText(event.target.value.replaceAll("\n", " ").toUpperCase());
