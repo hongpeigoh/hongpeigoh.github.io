@@ -4,7 +4,6 @@ import {
   Box,
   Container,
   Grid,
-  Grow,
   Paper,
   Slide,
   Stack,
@@ -51,13 +50,10 @@ const TextRow = (props: TextRowProps) => {
 
 export const Nusc = () => {
   const [flipflop, setFlipflop] = useState(true);
-  const [ready, setReady] = useState(true);
   const [text, setText] = useState("BREAK OPEN THE CLASSROOM");
 
   const handleChange = (event: any) => {
-    setReady(false);
     setText(event.target.value.replaceAll("\n", " ").toUpperCase());
-    setTimeout(() => setReady(true), 100);
   };
 
   useEffect(() => {
@@ -84,38 +80,34 @@ export const Nusc = () => {
   return (
     <>
       <Box sx={containerStyle}>
-        <Grow in={ready} exit={false}>
-          <div>
-            <Slide
-              direction={flipflop ? "left" : "right"}
-              in={flipflop}
-              timeout={{ enter: 700, exit: 700 }}
-              mountOnEnter
-              easing={{
-                enter: "linear",
-                exit: "linear",
-              }}
-            >
-              <Box sx={imageBlob1Style}>
-                <SubText />
-              </Box>
-            </Slide>
-            <Slide
-              direction={!flipflop ? "left" : "right"}
-              in={!flipflop}
-              timeout={{ enter: 700, exit: 700 }}
-              mountOnEnter
-              easing={{
-                enter: "linear",
-                exit: "linear",
-              }}
-            >
-              <Box sx={imageBlob2Style}>
-                <SubText />
-              </Box>
-            </Slide>
-          </div>
-        </Grow>
+        <Slide
+          direction={flipflop ? "left" : "right"}
+          in={flipflop}
+          timeout={{ enter: 700, exit: 700 }}
+          mountOnEnter
+          easing={{
+            enter: "linear",
+            exit: "linear",
+          }}
+        >
+          <Box sx={imageBlob1Style}>
+            <SubText />
+          </Box>
+        </Slide>
+        <Slide
+          direction={!flipflop ? "left" : "right"}
+          in={!flipflop}
+          timeout={{ enter: 700, exit: 700 }}
+          mountOnEnter
+          easing={{
+            enter: "linear",
+            exit: "linear",
+          }}
+        >
+          <Box sx={imageBlob2Style}>
+            <SubText />
+          </Box>
+        </Slide>
       </Box>
       <Container maxWidth="sm" sx={{ zIndex: 10 }}>
         <Paper elevation={12} sx={descriptionStyle}>
