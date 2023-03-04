@@ -51,15 +51,17 @@ export const textboxContainerRightStyle = {
 export const textboxLeftStyle = {
   margin: "0px",
   fontFamily: '"Blender Pro", Sans-serif',
-  lineHeight: "1",
+  fontWeight: "bold",
+  lineHeight: "0.9",
   textAlign: "right",
-  fontSize: "4.5em",
+  fontSize: "4.3em",
 };
 
 export const textboxRightStyle = {
   margin: "0px",
   fontFamily: '"Blender Pro", Sans-serif',
-  lineHeight: "1",
+  fontWeight: "bold",
+  lineHeight: "0.9",
   textAlign: "left",
   fontSize: "5.5em",
 };

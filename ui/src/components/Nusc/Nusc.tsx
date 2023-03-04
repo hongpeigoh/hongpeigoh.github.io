@@ -36,12 +36,12 @@ const TextRow = (props: TextRowProps) => {
   return (
     <>
       <Grid item xs={6} sx={textboxContainerLeftStyle}>
-        <Typography sx={textboxLeftStyle} variant="h1">
+        <Typography sx={textboxLeftStyle} variant="h2">
           {leftText}
         </Typography>
       </Grid>
       <Grid item xs={6} sx={textboxContainerRightStyle}>
-        <Typography sx={textboxRightStyle} variant="h1">
+        <Typography sx={textboxRightStyle} variant="h2">
           {rightText}
         </Typography>
       </Grid>
