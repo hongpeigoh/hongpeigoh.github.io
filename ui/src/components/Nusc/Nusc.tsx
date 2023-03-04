@@ -16,8 +16,10 @@ import {
   descriptionStyle,
   imageBlob1Style,
   imageBlob2Style,
-  textboxContainerStyle,
-  textboxStyle,
+  textboxContainerLeftStyle,
+  textboxContainerRightStyle,
+  textboxLeftStyle,
+  textboxRightStyle,
 } from "../../styles/Nusc";
 
 interface TextRowProps {
@@ -25,29 +27,21 @@ interface TextRowProps {
 }
 
 const TextRow = (props: TextRowProps) => {
-  const textLength = Math.floor(props.text.length / 2);
-  const leftText = props.text.substring(0, textLength);
-  const rightText = props.text.substring(textLength);
+  const textLength =
+    props.text.indexOf("|") !== -1
+      ? props.text.indexOf("|")
+      : Math.ceil(props.text.length / 2);
+  const leftText = props.text.replaceAll("|", "").substring(0, textLength);
+  const rightText = props.text.replaceAll("|", "").substring(textLength);
   return (
     <>
-      <Grid
-        item
-        xs={6}
-        sx={{ justifyContent: "right", ...textboxContainerStyle }}
-      >
-        <Typography
-          sx={{ textAlign: "right", fontSize: "72px", ...textboxStyle }}
-          variant="h1"
-        >
+      <Grid item xs={6} sx={textboxContainerLeftStyle}>
+        <Typography sx={textboxLeftStyle} variant="h1">
           {leftText}
         </Typography>
       </Grid>
-      <Grid
-        item
-        xs={6}
-        sx={{ justifyContent: "left", ...textboxContainerStyle }}
-      >
-        <Typography sx={{ textAlign: "left", ...textboxStyle }} variant="h1">
+      <Grid item xs={6} sx={textboxContainerRightStyle}>
+        <Typography sx={textboxRightStyle} variant="h1">
           {rightText}
         </Typography>
       </Grid>
@@ -58,7 +52,7 @@ const TextRow = (props: TextRowProps) => {
 export const Nusc = () => {
   const [flipflop, setFlipflop] = useState(true);
   const [ready, setReady] = useState(true);
-  const [text, setText] = useState("WELCOME TO NUS COLLEGE");
+  const [text, setText] = useState("BREAK OPEN THE CLASSROOM");
 
   const handleChange = (event: any) => {
     setReady(false);
@@ -79,71 +73,51 @@ export const Nusc = () => {
 
   const SubText = () => (
     <Container maxWidth="sm">
-      <Grow in={ready} exit={false}>
-        <Grid container spacing={0}>
-          {text.split(" ").map((subtext, index) => (
-            <TextRow key={index} text={subtext} />
-          ))}
-        </Grid>
-      </Grow>
+      <Grid container>
+        {text.split(" ").map((subtext, index) => (
+          <TextRow key={index} text={subtext} />
+        ))}
+      </Grid>
     </Container>
   );
 
   return (
     <>
       <Box sx={containerStyle}>
-        <Slide
-          direction="right"
-          in={flipflop}
-          timeout={{ enter: 700, exit: 700 }}
-          unmountOnExit
-          easing={{
-            enter: "linear",
-            exit: "linear",
-          }}
-        >
-          <Slide
-            direction="left"
-            in={flipflop}
-            timeout={{ enter: 700, exit: 700 }}
-            mountOnEnter
-            easing={{
-              enter: "linear",
-              exit: "linear",
-            }}
-          >
-            <Box sx={imageBlob1Style}>
-              <SubText />
-            </Box>
-          </Slide>
-        </Slide>
-        <Slide
-          direction="right"
-          in={!flipflop}
-          timeout={{ enter: 700, exit: 700 }}
-          unmountOnExit
-          easing={{
-            enter: "linear",
-            exit: "linear",
-          }}
-        >
-          <Slide
-            direction="left"
-            in={!flipflop}
-            timeout={{ enter: 700, exit: 700 }}
-            mountOnEnter
-            easing={{
-              enter: "linear",
-              exit: "linear",
-            }}
-          >
-            <Box sx={imageBlob2Style}>
-              <SubText />
-            </Box>
-          </Slide>
-        </Slide>
+        <Grow in={ready} exit={false}>
+          <div>
+            <Slide
+              direction={flipflop ? "left" : "right"}
+              in={flipflop}
+              timeout={{ enter: 700, exit: 700 }}
+              mountOnEnter
+              easing={{
+                enter: "linear",
+                exit: "linear",
+              }}
+            >
+              <Box sx={imageBlob1Style}>
+                <SubText />
+              </Box>
+            </Slide>
+            <Slide
+              direction={!flipflop ? "left" : "right"}
+              in={!flipflop}
+              timeout={{ enter: 700, exit: 700 }}
+              mountOnEnter
+              easing={{
+                enter: "linear",
+                exit: "linear",
+              }}
+            >
+              <Box sx={imageBlob2Style}>
+                <SubText />
+              </Box>
+            </Slide>
+          </div>
+        </Grow>
       </Box>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" sx={{ zIndex: 10 }}>
         <Paper elevation={12} sx={descriptionStyle}>
           <Stack spacing={4}>
             <Typography variant="body1">
