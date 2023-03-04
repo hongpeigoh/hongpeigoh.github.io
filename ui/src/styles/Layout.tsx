@@ -7,6 +7,11 @@ export const viewportStyle = {
   alignItems: "center",
   justifyContent: "center",
   color: "white",
+  overflowX: "hidden",
+};
+
+export const headerStyle = {
+  zIndex: "100",
 };
 
 export const footerStyle = {
