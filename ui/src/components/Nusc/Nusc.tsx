@@ -11,6 +11,7 @@ import {
   IconButton,
   InputLabel,
   MenuItem,
+  Modal,
   Paper,
   Select,
   Slide,
@@ -86,6 +87,7 @@ const TextRow = (props: TextRowProps) => {
 
 export const Nusc = () => {
   const [flipflop, setFlipflop] = useState(true);
+  const [open, setOpen] = useState(true);
   const [show, setShow] = useState(true);
   const [loopType, setLoopType] = useState(0);
   const [text, setText] = useState(
@@ -113,7 +115,12 @@ export const Nusc = () => {
     <Container maxWidth="sm">
       <Grid container>
         {text.split(" ").map((subtext, index) => (
-          <TextRow key={index} text={subtext} color={color} size={size as ISize} />
+          <TextRow
+            key={index}
+            text={subtext}
+            color={color}
+            size={size as ISize}
+          />
         ))}
       </Grid>
     </Container>
@@ -121,6 +128,26 @@ export const Nusc = () => {
 
   return (
     <>
+      <Modal open={open}>
+        <Container maxWidth="sm" sx={{ my: "35vh" }}>
+          <Paper sx={{ p: 3 }}>
+            <Typography variant="h6">Instructions</Typography>
+            <Typography variant="body1">
+              Type in your a phrase and it will show up in the NUS College
+              format! Use " " to breakline, "-" to not breakline, and "|" to
+              manually splice text.
+            </Typography>
+            <Typography variant="h6">Disclaimer</Typography>
+            <Typography variant="body1">
+              This tool seeks to provide an easy platform to aid NUS College
+              students in creating publicity materials for NUS College
+              activities. You wil bear full responsibility for all consequences
+              in its subsequent use and distribution.
+            </Typography>
+            <Button onClick={() => setOpen(false)}>I agree</Button>
+          </Paper>
+        </Container>
+      </Modal>
       <Box sx={containerStyle}>
         {loopType === 0 && (
           <>
@@ -159,12 +186,7 @@ export const Nusc = () => {
         <Grow in={show}>
           <Paper elevation={12} sx={descriptionStyle}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <Typography variant="body1">
-                  Type in your a phrase and it will show up in the NUS College
-                  format!
-                </Typography>
-              </Grid>
+              <Grid item xs={12}></Grid>
               <Grid item xs={12}>
                 <TextField
                   id="outlined-multiline-flexible"
