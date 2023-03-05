@@ -55,6 +55,7 @@ export const textboxLeftStyle = {
   lineHeight: "0.9",
   textAlign: "right",
   fontSize: "4.3em",
+  textShadow: "-2px 2px 2px white",
 };
 
 export const textboxRightStyle = {
@@ -64,10 +65,11 @@ export const textboxRightStyle = {
   lineHeight: "0.9",
   textAlign: "left",
   fontSize: "5.5em",
+  textShadow: "-2px 2px 2px white",
 };
 
 export const descriptionStyle = {
-  my: "-200px",
+  my: "-230px",
   flexDirection: "column",
   padding: "18px",
 };
