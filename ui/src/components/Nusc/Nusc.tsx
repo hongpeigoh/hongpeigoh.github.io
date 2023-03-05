@@ -23,6 +23,7 @@ import {
   descriptionStyle,
   imageBlob1Style,
   imageBlob2Style,
+  slideStyle,
   textboxContainerLeftStyle,
   textboxContainerRightStyle,
   textboxLeftStyle,
@@ -32,7 +33,20 @@ import {
 interface TextRowProps {
   text: string;
   color: string;
+  size: ISize;
 }
+
+enum ISize {
+  small = "small",
+  medium = "medium",
+  large = "large",
+}
+
+const sizeMap = {
+  small: ["3.3em", "4.5em"],
+  medium: ["4.3em", "5.5em"],
+  large: ["5.3em", "6.5em"],
+};
 
 const TextRow = (props: TextRowProps) => {
   const textLength =
@@ -45,12 +59,14 @@ const TextRow = (props: TextRowProps) => {
     ...textboxLeftStyle,
     color: props.color,
     textShadow: props.color === "white" ? "none" : "-2px 2px 2px white",
+    fontSize: sizeMap[props.size][0],
   };
   const rightText = formattedText.substring(textLength);
   const rightTextboxStyle = {
     ...textboxRightStyle,
     color: props.color,
     textShadow: props.color === "white" ? "none" : "-2px 2px 2px white",
+    fontSize: sizeMap[props.size][1],
   };
   return (
     <>
@@ -71,10 +87,12 @@ const TextRow = (props: TextRowProps) => {
 export const Nusc = () => {
   const [flipflop, setFlipflop] = useState(true);
   const [show, setShow] = useState(true);
+  const [loopType, setLoopType] = useState(0);
   const [text, setText] = useState(
     "EVERYWHERE THE-LIGHT TO|UCHES IS-OUR-|KINGDOM"
   );
   const [color, setColor] = useState("white");
+  const [size, setSize] = useState("medium");
 
   const handleChange = (event: any) => {
     setText(event.target.value.replaceAll("\n", " ").toUpperCase());
@@ -95,7 +113,7 @@ export const Nusc = () => {
     <Container maxWidth="sm">
       <Grid container>
         {text.split(" ").map((subtext, index) => (
-          <TextRow key={index} text={subtext} color={color} />
+          <TextRow key={index} text={subtext} color={color} size={size as ISize} />
         ))}
       </Grid>
     </Container>
@@ -104,34 +122,30 @@ export const Nusc = () => {
   return (
     <>
       <Box sx={containerStyle}>
-        <Slide
-          direction={flipflop ? "left" : "right"}
-          in={flipflop}
-          timeout={{ enter: 700, exit: 700 }}
-          mountOnEnter
-          easing={{
-            enter: "linear",
-            exit: "linear",
-          }}
-        >
+        {loopType === 0 && (
+          <>
+            <Slide {...slideStyle(flipflop)}>
+              <Box sx={imageBlob1Style}>
+                <SubText />
+              </Box>
+            </Slide>
+            <Slide {...slideStyle(!flipflop)}>
+              <Box sx={imageBlob2Style}>
+                <SubText />
+              </Box>
+            </Slide>
+          </>
+        )}
+        {loopType === 1 && (
           <Box sx={imageBlob1Style}>
             <SubText />
           </Box>
-        </Slide>
-        <Slide
-          direction={!flipflop ? "left" : "right"}
-          in={!flipflop}
-          timeout={{ enter: 700, exit: 700 }}
-          mountOnEnter
-          easing={{
-            enter: "linear",
-            exit: "linear",
-          }}
-        >
+        )}
+        {loopType === 2 && (
           <Box sx={imageBlob2Style}>
             <SubText />
           </Box>
-        </Slide>
+        )}
       </Box>
       <Container maxWidth="sm" sx={{ zIndex: 10 }}>
         <IconButton
@@ -163,11 +177,9 @@ export const Nusc = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={4}>
                 <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Font Color
-                  </InputLabel>
+                  <InputLabel id="font-color-label">Font Color</InputLabel>
                   <Select
                     id="color-select"
                     size="small"
@@ -181,10 +193,27 @@ export const Nusc = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={6}>
-                <ButtonGroup variant="outlined" color="secondary">
-                  <Button disabled>Save as JPG</Button>
-                  <Button disabled>Save as PNG</Button>
+              <Grid item xs={4}>
+                <FormControl fullWidth>
+                  <InputLabel id="font-size-label">Font Size</InputLabel>
+                  <Select
+                    id="color-select"
+                    size="small"
+                    value={size}
+                    label="Font Size"
+                    onChange={(e) => setSize(e.target.value)}
+                  >
+                    <MenuItem value={"small"}>Small</MenuItem>
+                    <MenuItem value={"medium"}>Medium</MenuItem>
+                    <MenuItem value={"large"}>Large</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={4}>
+                <ButtonGroup variant="outlined">
+                  <Button onClick={() => setLoopType(1)}>1</Button>
+                  <Button onClick={() => setLoopType(2)}>2</Button>
+                  <Button onClick={() => setLoopType(0)}>LOOP</Button>
                 </ButtonGroup>
               </Grid>
             </Grid>

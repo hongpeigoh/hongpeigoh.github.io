@@ -54,8 +54,6 @@ export const textboxLeftStyle = {
   fontWeight: "bold",
   lineHeight: "0.9",
   textAlign: "right",
-  fontSize: "4.3em",
-  textShadow: "-2px 2px 2px white",
 };
 
 export const textboxRightStyle = {
@@ -64,8 +62,6 @@ export const textboxRightStyle = {
   fontWeight: "bold",
   lineHeight: "0.9",
   textAlign: "left",
-  fontSize: "5.5em",
-  textShadow: "-2px 2px 2px white",
 };
 
 export const descriptionStyle = {
@@ -73,3 +69,14 @@ export const descriptionStyle = {
   flexDirection: "column",
   padding: "18px",
 };
+
+export const slideStyle = (toggle: boolean) => ({
+  direction: toggle ? "left" : "right" as "left" | "right",
+  in: toggle,
+  timeout: { enter: 700, exit: 700 },
+  mountOnEnter: true,
+  easing: {
+    enter: "linear",
+    exit: "linear",
+  },
+});
