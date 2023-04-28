@@ -5,7 +5,7 @@ import { footerStyle } from "../../styles/Layout";
 export const Footer = () => (
   <Box component="footer" sx={footerStyle}>
     <Container maxWidth="sm">
-      <Typography variant="h6">
+      <Typography variant="subtitle1">
         <Copyright fontSize="small" /> Created by Goh Hong Pei. 2023.
       </Typography>
     </Container>

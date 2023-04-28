@@ -1,7 +1,34 @@
-import { Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+import {
+  bannerBoxStyle,
+  educationBoxStyle,
+  experienceBoxStyle,
+  introBoxStyle,
+  miscBoxStyle,
+  projectsBoxStyle,
+} from "../../styles/Home";
 
 export const Home = () => (
-  <Typography sx={{ pt: 20 }} variant="h3">
-    Watch this space!
-  </Typography>
+  <>
+    <Box sx={bannerBoxStyle}>
+      <Container>
+        <Typography variant="h3">Hi there! I'm Hong Pei</Typography>
+      </Container>
+    </Box>
+    <Box sx={introBoxStyle}>
+      <Container>Intro</Container>
+    </Box>
+    <Box sx={experienceBoxStyle}>
+      <Container>Experience</Container>
+    </Box>
+    <Box sx={educationBoxStyle}>
+      <Container>Education</Container>
+    </Box>
+    <Box sx={projectsBoxStyle}>
+      <Container>Projects</Container>
+    </Box>
+    <Box sx={miscBoxStyle}>
+      <Container>Misc</Container>
+    </Box>
+  </>
 );
