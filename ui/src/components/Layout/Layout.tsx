@@ -8,8 +8,8 @@ import { viewportStyle } from "../../styles/Layout";
 
 export const Layout = () => (
   <Box sx={viewportStyle}>
-    <Header />
+    {/* <Header /> */}
     <Outlet />
-    <Footer />
+    {/* <Footer /> */}
   </Box>
 );
