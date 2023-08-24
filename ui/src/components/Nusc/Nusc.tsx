@@ -55,11 +55,12 @@ const getTitleChunks = (text: string) => {
   const leftChunks = [];
   const rightChunks = [];
   for (const line of text.split(" ")) {
+    if (line === "") continue;
     const textLength =
       line.indexOf("|") !== -1 ? line.indexOf("|") : Math.ceil(line.length / 2);
     const formattedText = line.replaceAll("|", "").replaceAll("-", " ");
     leftChunks.push(formattedText.substring(0, textLength));
-    rightChunks.push(formattedText.substring(textLength));
+    rightChunks.push(formattedText.substring(textLength) || " ");
   }
   return [leftChunks, rightChunks];
 };
@@ -84,7 +85,7 @@ const Breakaway = (props: BreakawayProps) => {
         <Stack>
           {leftChunks.map((subtext, index) => (
             <Typography key={index} sx={leftTextboxStyle} variant="body1">
-              {subtext}
+              &nbsp;{subtext}
             </Typography>
           ))}
         </Stack>
@@ -93,7 +94,7 @@ const Breakaway = (props: BreakawayProps) => {
         <Stack>
           {rightChunks.map((subtext, index) => (
             <Typography key={index} sx={rightTextboxStyle} variant="body1">
-              {subtext}
+              {subtext}&nbsp;
             </Typography>
           ))}
         </Stack>
@@ -108,7 +109,13 @@ export const Nusc = () => {
   const [loopType, setLoopType] = useState<string | number>(0);
   const [text, setText] = useState("BREAK OPEN THE CLASSROOM");
   const [color, setColor] = useState("#ef7c00");
-  const [size, setSize] = useState(window.innerWidth < 600 ? "small" : window.innerWidth < 1200 ? "medium" : "large");
+  const [size, setSize] = useState(
+    window.innerWidth < 600
+      ? "small"
+      : window.innerWidth < 1200
+      ? "medium"
+      : "large"
+  );
   const [show, setShow] = useState(true);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
