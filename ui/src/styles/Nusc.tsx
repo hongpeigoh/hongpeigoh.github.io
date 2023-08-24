@@ -1,38 +1,32 @@
 export const containerStyle = {
-  marginTop: "-48px",
   height: "90vh",
   minWidth: "100vw",
   overflow: "hidden",
   position: "relative",
 };
 
-export const imageBlob1Style = {
+export const imageBlobStyle = (color: string) => ({
   position: "absolute",
   top: "0%",
   display: "flex",
   alignItems: "center",
   minHeight: "90vh",
   minWidth: "100vw",
+  backgroundColor: color,
+  backgroundPosition: "center center",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  paddingBottom: "7vh",
+});
+export const imageBlob1Style = {
+  ...imageBlobStyle("white"),
   backgroundImage:
     'url("https://nuscollege.nus.edu.sg/wp-content/uploads/2023/03/home-hero-1.jpg")',
-  backgroundPosition: "center center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  paddingBottom: "7vh",
 };
 export const imageBlob2Style = {
-  position: "absolute",
-  top: "0%",
-  display: "flex",
-  alignItems: "center",
-  minHeight: "90vh",
-  minWidth: "100vw",
+  ...imageBlobStyle("white"),
   backgroundImage:
     'url("https://nuscollege.nus.edu.sg/wp-content/uploads/2023/02/home-hero-2.jpg")',
-  backgroundPosition: "center center",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  paddingBottom: "7vh",
 };
 
 export const textboxContainerLeftStyle = {
@@ -51,16 +45,14 @@ export const textboxContainerRightStyle = {
 export const textboxLeftStyle = {
   margin: "0px",
   fontFamily: '"Blender Pro", Sans-serif',
-  fontWeight: "bold",
-  lineHeight: "0.9",
+  lineHeight: "0.75",
   textAlign: "right",
 };
 
 export const textboxRightStyle = {
   margin: "0px",
   fontFamily: '"Blender Pro", Sans-serif',
-  fontWeight: "bold",
-  lineHeight: "0.9",
+  lineHeight: "0.75",
   textAlign: "left",
 };
 
@@ -71,7 +63,7 @@ export const descriptionStyle = {
 };
 
 export const slideStyle = (toggle: boolean) => ({
-  direction: toggle ? "left" : "right" as "left" | "right",
+  direction: toggle ? "left" : ("right" as "left" | "right"),
   in: toggle,
   timeout: { enter: 700, exit: 700 },
   mountOnEnter: true,

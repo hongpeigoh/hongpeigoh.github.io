@@ -15,6 +15,7 @@ import {
   Paper,
   Select,
   Slide,
+  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -24,18 +25,13 @@ import {
   descriptionStyle,
   imageBlob1Style,
   imageBlob2Style,
+  imageBlobStyle,
   slideStyle,
   textboxContainerLeftStyle,
   textboxContainerRightStyle,
   textboxLeftStyle,
   textboxRightStyle,
 } from "../../styles/Nusc";
-
-interface TextRowProps {
-  text: string;
-  color: string;
-  size: ISize;
-}
 
 enum ISize {
   small = "small",
@@ -44,44 +40,65 @@ enum ISize {
 }
 
 const sizeMap = {
-  small: ["3.3em", "4.5em"],
-  medium: ["4.3em", "5.5em"],
-  large: ["5.3em", "6.5em"],
+  small: ["3.6em", "4.5em"],
+  medium: ["4.4em", "5.5em"],
+  large: ["5.2em", "6.5em"],
 };
 
-const TextRow = (props: TextRowProps) => {
-  const textLength =
-    props.text.indexOf("|") !== -1
-      ? props.text.indexOf("|")
-      : Math.ceil(props.text.length / 2);
-  const formattedText = props.text.replaceAll("|", "").replaceAll("-", " ");
-  const leftText = formattedText.substring(0, textLength);
+interface BreakawayProps {
+  text: string;
+  color: string;
+  size: ISize;
+}
+
+const getTitleChunks = (text: string) => {
+  const leftChunks = [];
+  const rightChunks = [];
+  for (const line of text.split(" ")) {
+    const textLength =
+      line.indexOf("|") !== -1 ? line.indexOf("|") : Math.ceil(line.length / 2);
+    const formattedText = line.replaceAll("|", "").replaceAll("-", " ");
+    leftChunks.push(formattedText.substring(0, textLength));
+    rightChunks.push(formattedText.substring(textLength));
+  }
+  return [leftChunks, rightChunks];
+};
+
+const Breakaway = (props: BreakawayProps) => {
+  const [leftChunks, rightChunks] = getTitleChunks(props.text);
   const leftTextboxStyle = {
     ...textboxLeftStyle,
     color: props.color,
-    textShadow: props.color === "white" ? "none" : "-2px 2px 2px white",
+    textShadow: props.color === "white" ? "none" : "2px 2px 2px #ffffffaa",
     fontSize: sizeMap[props.size][0],
   };
-  const rightText = formattedText.substring(textLength);
   const rightTextboxStyle = {
     ...textboxRightStyle,
     color: props.color,
-    textShadow: props.color === "white" ? "none" : "-2px 2px 2px white",
+    textShadow: props.color === "white" ? "none" : "2px 2px 2px #ffffffaa",
     fontSize: sizeMap[props.size][1],
   };
   return (
-    <>
+    <Grid container>
       <Grid item xs={6} sx={textboxContainerLeftStyle}>
-        <Typography sx={leftTextboxStyle} variant="h2">
-          {leftText}
-        </Typography>
+        <Stack>
+          {leftChunks.map((subtext, index) => (
+            <Typography key={index} sx={leftTextboxStyle} variant="body1">
+              {subtext}
+            </Typography>
+          ))}
+        </Stack>
       </Grid>
       <Grid item xs={6} sx={textboxContainerRightStyle}>
-        <Typography sx={rightTextboxStyle} variant="h2">
-          {rightText}
-        </Typography>
+        <Stack>
+          {rightChunks.map((subtext, index) => (
+            <Typography key={index} sx={rightTextboxStyle} variant="body1">
+              {subtext}
+            </Typography>
+          ))}
+        </Stack>
       </Grid>
-    </>
+    </Grid>
   );
 };
 
@@ -89,12 +106,10 @@ export const Nusc = () => {
   const [flipflop, setFlipflop] = useState(true);
   const [open, setOpen] = useState(true);
   const [show, setShow] = useState(true);
-  const [loopType, setLoopType] = useState(0);
-  const [text, setText] = useState(
-    "EVERYWHERE THE-LIGHT TO|UCHES IS-OUR-|KINGDOM"
-  );
-  const [color, setColor] = useState("white");
-  const [size, setSize] = useState("medium");
+  const [loopType, setLoopType] = useState<string | number>(0);
+  const [text, setText] = useState("BREAK OPEN THE CLASSROOM");
+  const [color, setColor] = useState("#ef7c00");
+  const [size, setSize] = useState("small");
 
   const handleChange = (event: any) => {
     setText(event.target.value.replaceAll("\n", " ").toUpperCase());
@@ -102,6 +117,7 @@ export const Nusc = () => {
 
   useEffect(() => {
     let isMounted = true;
+    if (loopType !== 0) return;
     const timer = setInterval(() => {
       isMounted && setFlipflop((old) => !old);
     }, 5000);
@@ -109,42 +125,37 @@ export const Nusc = () => {
       isMounted = false;
       clearInterval(timer);
     };
-  }, []);
+  }, [loopType]);
 
   const SubText = () => (
     <Container maxWidth="sm">
-      <Grid container>
-        {text.split(" ").map((subtext, index) => (
-          <TextRow
-            key={index}
-            text={subtext}
-            color={color}
-            size={size as ISize}
-          />
-        ))}
-      </Grid>
+      <Breakaway text={text} color={color} size={size as ISize} />
     </Container>
   );
 
   return (
     <>
       <Modal open={open}>
-        <Container maxWidth="sm" sx={{ my: "35vh" }}>
-          <Paper sx={{ p: 3 }}>
+        <Container disableGutters maxWidth="sm" sx={{ my: "35vh" }}>
+          <Paper sx={{ p: 3, mx: 0 }}>
             <Typography variant="h6">Instructions</Typography>
             <Typography variant="body1">
-              Type in your a phrase and it will show up in the NUS College
-              format! Use " " to breakline, "-" to not breakline, and "|" to
-              manually splice text.
+              Type in a phrase and it will show up in the NUS College's
+              Break-away format! Use " " to start a new line, "-" to keep words
+              on the same line, and "|" to choose the splitting point.
             </Typography>
             <Typography variant="h6">Disclaimer</Typography>
             <Typography variant="body1">
-              This tool seeks to provide an easy platform to aid NUS College
-              students in creating publicity materials for NUS College
-              activities. You wil bear full responsibility for all consequences
-              in its subsequent use and distribution.
+              This tool acts as visualiser and any material used thereafter
+              shall have its responsibility borne by the creator.
             </Typography>
-            <Button onClick={() => setOpen(false)}>I agree</Button>
+            <Button
+              sx={{ marginTop: "10px" }}
+              variant="contained"
+              onClick={() => setOpen(false)}
+            >
+              I agree
+            </Button>
           </Paper>
         </Container>
       </Modal>
@@ -170,6 +181,11 @@ export const Nusc = () => {
         )}
         {loopType === 2 && (
           <Box sx={imageBlob2Style}>
+            <SubText />
+          </Box>
+        )}
+        {typeof loopType === "string" && (
+          <Box sx={imageBlobStyle(loopType)}>
             <SubText />
           </Box>
         )}
@@ -209,9 +225,17 @@ export const Nusc = () => {
                     label="Font Color"
                     onChange={(e) => setColor(e.target.value)}
                   >
-                    <MenuItem value={"white"}>White</MenuItem>
-                    <MenuItem value={"#ef7c00"}>Orange</MenuItem>
-                    <MenuItem value={"#003d7c"}>Blue</MenuItem>
+                    <MenuItem value={"#ffffff"}>White</MenuItem>
+                    <MenuItem value={"#ef7c00"}>NUS Orange</MenuItem>
+                    <MenuItem value={"#ff3c0d"}>Cinnamon (Bright)</MenuItem>
+                    <MenuItem value={"#fcedd6"}>Cinnamon (Light)</MenuItem>
+                    <MenuItem value={"#f3e207"}>Highlight Yellow</MenuItem>
+                    <MenuItem value={"#003d7c"}>NUS Blue</MenuItem>
+                    <MenuItem value={"#000099"}>Blue (Bright)</MenuItem>
+                    <MenuItem value={"#c8e9e0"}>Blue (Light)</MenuItem>
+                    <MenuItem value={"#72e2fc"}>Blue</MenuItem>
+                    <MenuItem value={"#d0cfc7"}>Paper-Grey</MenuItem>
+                    <MenuItem value={"#000000"}>Black</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -232,11 +256,31 @@ export const Nusc = () => {
                 </FormControl>
               </Grid>
               <Grid item xs={4}>
-                <ButtonGroup variant="outlined">
-                  <Button onClick={() => setLoopType(1)}>1</Button>
-                  <Button onClick={() => setLoopType(2)}>2</Button>
-                  <Button onClick={() => setLoopType(0)}>LOOP</Button>
-                </ButtonGroup>
+                <FormControl fullWidth>
+                  <InputLabel id="bg-color-label">Background Color</InputLabel>
+                  <Select
+                    id="bg-color-select"
+                    size="small"
+                    value={loopType}
+                    label="Background Color"
+                    onChange={(e) => setLoopType(e.target.value)}
+                  >
+                    <MenuItem value={0}>Photo Loop</MenuItem>
+                    <MenuItem value={1}>Photo 1</MenuItem>
+                    <MenuItem value={2}>Photo 2</MenuItem>
+                    <MenuItem value={"#ffffff"}>White</MenuItem>
+                    <MenuItem value={"#ef7c00"}>NUS Orange</MenuItem>
+                    <MenuItem value={"#ff3c0d"}>Cinnamon (Bright)</MenuItem>
+                    <MenuItem value={"#fcedd6"}>Cinnamon (Light)</MenuItem>
+                    <MenuItem value={"#f3e207"}>Highlight Yellow</MenuItem>
+                    <MenuItem value={"#003d7c"}>NUS Blue</MenuItem>
+                    <MenuItem value={"#000099"}>Blue (Bright)</MenuItem>
+                    <MenuItem value={"#c8e9e0"}>Blue (Light)</MenuItem>
+                    <MenuItem value={"#72e2fc"}>Blue</MenuItem>
+                    <MenuItem value={"#d0cfc7"}>Paper-Grey</MenuItem>
+                    <MenuItem value={"#000000"}>Black</MenuItem>
+                  </Select>
+                </FormControl>
               </Grid>
             </Grid>
           </Paper>
