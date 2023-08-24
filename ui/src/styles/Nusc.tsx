@@ -1,5 +1,5 @@
 export const containerStyle = {
-  height: "90vh",
+  height: "100vh",
   minWidth: "100vw",
   overflow: "hidden",
   position: "relative",
@@ -10,13 +10,12 @@ export const imageBlobStyle = (color: string) => ({
   top: "0%",
   display: "flex",
   alignItems: "center",
-  minHeight: "90vh",
+  minHeight: "100vh",
   minWidth: "100vw",
   backgroundColor: color,
   backgroundPosition: "center center",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
-  paddingBottom: "7vh",
 });
 export const imageBlob1Style = {
   ...imageBlobStyle("white"),
@@ -57,7 +56,6 @@ export const textboxRightStyle = {
 };
 
 export const descriptionStyle = {
-  my: "-230px",
   flexDirection: "column",
   padding: "18px",
 };

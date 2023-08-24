@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 
 import {
   Box,
   Button,
-  ButtonGroup,
   Container,
   FormControl,
   Grid,
@@ -13,6 +12,7 @@ import {
   MenuItem,
   Modal,
   Paper,
+  Popper,
   Select,
   Slide,
   Stack,
@@ -105,11 +105,12 @@ const Breakaway = (props: BreakawayProps) => {
 export const Nusc = () => {
   const [flipflop, setFlipflop] = useState(true);
   const [open, setOpen] = useState(true);
-  const [show, setShow] = useState(true);
   const [loopType, setLoopType] = useState<string | number>(0);
   const [text, setText] = useState("BREAK OPEN THE CLASSROOM");
   const [color, setColor] = useState("#ef7c00");
-  const [size, setSize] = useState("small");
+  const [size, setSize] = useState(window.innerWidth < 600 ? "small" : window.innerWidth < 1200 ? "medium" : "large");
+  const [show, setShow] = useState(true);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleChange = (event: any) => {
     setText(event.target.value.replaceAll("\n", " ").toUpperCase());
@@ -190,101 +191,105 @@ export const Nusc = () => {
           </Box>
         )}
       </Box>
-      <Container maxWidth="sm" sx={{ zIndex: 10 }}>
+      <Container maxWidth="sm" sx={{ zIndex: 10, marginTop: "-40px" }}>
         <IconButton
-          color="primary"
-          aria-label="upload picture"
+          ref={setAnchorEl}
+          color="default"
           component="label"
           onClick={() => setShow((old) => !old)}
         >
           {show ? <ExpandMore /> : <ExpandLess />}
         </IconButton>
-        <Grow in={show}>
-          <Paper elevation={12} sx={descriptionStyle}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}></Grid>
-              <Grid item xs={12}>
-                <TextField
-                  id="outlined-multiline-flexible"
-                  label="Enter here"
-                  multiline
-                  size="small"
-                  rows={1}
-                  value={text}
-                  onChange={handleChange}
-                  fullWidth
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <FormControl fullWidth>
-                  <InputLabel id="font-color-label">Font Color</InputLabel>
-                  <Select
-                    id="color-select"
+        <Popper open={show} anchorEl={anchorEl}>
+          <Grow in={show}>
+            <Paper elevation={12} sx={descriptionStyle}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}></Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    id="outlined-multiline-flexible"
+                    label="Enter here"
+                    multiline
                     size="small"
-                    value={color}
-                    label="Font Color"
-                    onChange={(e) => setColor(e.target.value)}
-                  >
-                    <MenuItem value={"#ffffff"}>White</MenuItem>
-                    <MenuItem value={"#ef7c00"}>NUS Orange</MenuItem>
-                    <MenuItem value={"#ff3c0d"}>Cinnamon (Bright)</MenuItem>
-                    <MenuItem value={"#fcedd6"}>Cinnamon (Light)</MenuItem>
-                    <MenuItem value={"#f3e207"}>Highlight Yellow</MenuItem>
-                    <MenuItem value={"#003d7c"}>NUS Blue</MenuItem>
-                    <MenuItem value={"#000099"}>Blue (Bright)</MenuItem>
-                    <MenuItem value={"#c8e9e0"}>Blue (Light)</MenuItem>
-                    <MenuItem value={"#72e2fc"}>Blue</MenuItem>
-                    <MenuItem value={"#d0cfc7"}>Paper-Grey</MenuItem>
-                    <MenuItem value={"#000000"}>Black</MenuItem>
-                  </Select>
-                </FormControl>
+                    rows={1}
+                    value={text}
+                    onChange={handleChange}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <FormControl fullWidth>
+                    <InputLabel id="font-color-label">Font Color</InputLabel>
+                    <Select
+                      id="color-select"
+                      size="small"
+                      value={color}
+                      label="Font Color"
+                      onChange={(e) => setColor(e.target.value)}
+                    >
+                      <MenuItem value={"#ffffff"}>White</MenuItem>
+                      <MenuItem value={"#ef7c00"}>NUS Orange</MenuItem>
+                      <MenuItem value={"#ff3c0d"}>Cinnamon (Bright)</MenuItem>
+                      <MenuItem value={"#fcedd6"}>Cinnamon (Light)</MenuItem>
+                      <MenuItem value={"#f3e207"}>Highlight Yellow</MenuItem>
+                      <MenuItem value={"#003d7c"}>NUS Blue</MenuItem>
+                      <MenuItem value={"#000099"}>Blue (Bright)</MenuItem>
+                      <MenuItem value={"#c8e9e0"}>Blue (Light)</MenuItem>
+                      <MenuItem value={"#72e2fc"}>Blue</MenuItem>
+                      <MenuItem value={"#d0cfc7"}>Paper-Grey</MenuItem>
+                      <MenuItem value={"#000000"}>Black</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <FormControl fullWidth>
+                    <InputLabel id="font-size-label">Font Size</InputLabel>
+                    <Select
+                      id="color-select"
+                      size="small"
+                      value={size}
+                      label="Font Size"
+                      onChange={(e) => setSize(e.target.value)}
+                    >
+                      <MenuItem value={"small"}>Small</MenuItem>
+                      <MenuItem value={"medium"}>Medium</MenuItem>
+                      <MenuItem value={"large"}>Large</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <FormControl fullWidth>
+                    <InputLabel id="bg-color-label">
+                      Background Color
+                    </InputLabel>
+                    <Select
+                      id="bg-color-select"
+                      size="small"
+                      value={loopType}
+                      label="Background Color"
+                      onChange={(e) => setLoopType(e.target.value)}
+                    >
+                      <MenuItem value={0}>Photo Loop</MenuItem>
+                      <MenuItem value={1}>Photo 1</MenuItem>
+                      <MenuItem value={2}>Photo 2</MenuItem>
+                      <MenuItem value={"#ffffff"}>White</MenuItem>
+                      <MenuItem value={"#ef7c00"}>NUS Orange</MenuItem>
+                      <MenuItem value={"#ff3c0d"}>Cinnamon (Bright)</MenuItem>
+                      <MenuItem value={"#fcedd6"}>Cinnamon (Light)</MenuItem>
+                      <MenuItem value={"#f3e207"}>Highlight Yellow</MenuItem>
+                      <MenuItem value={"#003d7c"}>NUS Blue</MenuItem>
+                      <MenuItem value={"#000099"}>Blue (Bright)</MenuItem>
+                      <MenuItem value={"#c8e9e0"}>Blue (Light)</MenuItem>
+                      <MenuItem value={"#72e2fc"}>Blue</MenuItem>
+                      <MenuItem value={"#d0cfc7"}>Paper-Grey</MenuItem>
+                      <MenuItem value={"#000000"}>Black</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
               </Grid>
-              <Grid item xs={4}>
-                <FormControl fullWidth>
-                  <InputLabel id="font-size-label">Font Size</InputLabel>
-                  <Select
-                    id="color-select"
-                    size="small"
-                    value={size}
-                    label="Font Size"
-                    onChange={(e) => setSize(e.target.value)}
-                  >
-                    <MenuItem value={"small"}>Small</MenuItem>
-                    <MenuItem value={"medium"}>Medium</MenuItem>
-                    <MenuItem value={"large"}>Large</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={4}>
-                <FormControl fullWidth>
-                  <InputLabel id="bg-color-label">Background Color</InputLabel>
-                  <Select
-                    id="bg-color-select"
-                    size="small"
-                    value={loopType}
-                    label="Background Color"
-                    onChange={(e) => setLoopType(e.target.value)}
-                  >
-                    <MenuItem value={0}>Photo Loop</MenuItem>
-                    <MenuItem value={1}>Photo 1</MenuItem>
-                    <MenuItem value={2}>Photo 2</MenuItem>
-                    <MenuItem value={"#ffffff"}>White</MenuItem>
-                    <MenuItem value={"#ef7c00"}>NUS Orange</MenuItem>
-                    <MenuItem value={"#ff3c0d"}>Cinnamon (Bright)</MenuItem>
-                    <MenuItem value={"#fcedd6"}>Cinnamon (Light)</MenuItem>
-                    <MenuItem value={"#f3e207"}>Highlight Yellow</MenuItem>
-                    <MenuItem value={"#003d7c"}>NUS Blue</MenuItem>
-                    <MenuItem value={"#000099"}>Blue (Bright)</MenuItem>
-                    <MenuItem value={"#c8e9e0"}>Blue (Light)</MenuItem>
-                    <MenuItem value={"#72e2fc"}>Blue</MenuItem>
-                    <MenuItem value={"#d0cfc7"}>Paper-Grey</MenuItem>
-                    <MenuItem value={"#000000"}>Black</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grow>
+            </Paper>
+          </Grow>
+        </Popper>
       </Container>
     </>
   );
