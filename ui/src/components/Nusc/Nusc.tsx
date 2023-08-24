@@ -217,7 +217,7 @@ export const Nusc = () => {
                     fullWidth
                   />
                 </Grid>
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid item xs={6} md={4}>
                   <FormControl fullWidth>
                     <InputLabel id="font-color-label">Font Color</InputLabel>
                     <Select
@@ -241,7 +241,7 @@ export const Nusc = () => {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid item xs={6} md={4}>
                   <FormControl fullWidth>
                     <InputLabel id="font-size-label">Font Size</InputLabel>
                     <Select
@@ -257,7 +257,7 @@ export const Nusc = () => {
                     </Select>
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={6} md={4}>
+                <Grid item xs={6} md={4}>
                   <FormControl fullWidth>
                     <InputLabel id="bg-color-label">
                       Background Color
