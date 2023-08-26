@@ -70,13 +70,13 @@ const Breakaway = (props: BreakawayProps) => {
   const leftTextboxStyle = {
     ...textboxLeftStyle,
     color: props.color,
-    textShadow: props.color === "white" ? "none" : "2px 2px 2px #ffffffaa",
+    textShadow: props.color === "white" ? "none" : "2px 2px 5px #ffffff44",
     fontSize: sizeMap[props.size][0],
   };
   const rightTextboxStyle = {
     ...textboxRightStyle,
     color: props.color,
-    textShadow: props.color === "white" ? "none" : "2px 2px 2px #ffffffaa",
+    textShadow: props.color === "white" ? "none" : "2px 2px 5px #ffffff44",
     fontSize: sizeMap[props.size][1],
   };
   return (
