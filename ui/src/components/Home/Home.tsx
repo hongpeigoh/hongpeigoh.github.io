@@ -1,101 +1,186 @@
-import {
-  Box,
-  ButtonBase,
-  Container,
-  FormControlLabel,
-  Slide,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import {
   bannerBoxStyle,
   educationBoxStyle,
   experienceBoxStyle,
-  introBoxStyle,
   miscBoxStyle,
   projectsBoxStyle,
 } from "../../styles/Home";
-import { useState } from "react";
+import { ExperienceCard } from "./ExperienceCard";
 import {
-  scrollBoxStyle,
-  scrollContentStyle,
-  scrollSlideStyle,
-} from "../../styles/Scroll";
-
-interface ScrollBoxProps {
-  checked: boolean;
-  defaultIn: boolean;
-  goNext?: Function;
-  goPrev?: Function;
-  text: string;
-}
-
-export const ScrollBox = (props: ScrollBoxProps) => {
-  const { checked, defaultIn, goNext, goPrev, text } = props;
-  return (
-    <Slide {...scrollSlideStyle(checked, defaultIn)}>
-      <Box sx={scrollContentStyle}>
-        <Typography variant="h3">Scroll box {text}</Typography>
-      </Box>
-    </Slide>
-  );
-};
+  FlaskOriginalWordmark,
+  GithubOriginalWordmark,
+  GitlabOriginalWordmark,
+  GrafanaOriginalWordmark,
+  JavaOriginalWordmark,
+  JavascriptOriginal,
+  JenkinsOriginal,
+  KotlinOriginal,
+  PrometheusOriginalWordmark,
+  PythonOriginalWordmark,
+  ReactOriginalWordmark,
+  SpringOriginalWordmark,
+  TypescriptOriginal,
+} from "devicons-react";
+import { EducationCard } from "./EducationCard";
 
 export const Home = () => {
-  const [index, setIndex] = useState(0);
-
-  const goNext = () =>
-    setIndex((prev) => {
-      console.log(prev);
-      return prev + 1;
-    });
-
-  console.log(index);
-
   return (
-    <Container sx={scrollBoxStyle} maxWidth="sm">
-      {/* <Box sx={scrollBoxStyle}>
-        <FormControlLabel
-          control={<ButtonBase onClick={() => goNext()} />}
-          label="Show"
-        />
-        <ScrollBox
-          checked={index === 0}
-          defaultIn={index === 0}
-          goNext={goNext}
-          text={"1"}
-        />
-        <ScrollBox
-          checked={index === 1}
-          defaultIn={index === 0}
-          goNext={goNext}
-          text={"2"}
-        />
-        <ScrollBox
-          checked={index === 2}
-          defaultIn={index === 0}
-          goNext={goNext}
-          text={"3"}
-        />
-      </Box>
-      <Box sx={bannerBoxStyle}>
-        <Container>Hi!</Container>
-      </Box>
-      <Box sx={introBoxStyle}>
-        <Container>Intro</Container>
+    <>
+      <Box sx={bannerBoxStyle} data-aos="fade-in">
+        <Container maxWidth="md">
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="h4" align="justify" data-aos="fade-up">
+                Hello! I am
+              </Typography>
+              <Typography
+                variant="h1"
+                align="justify"
+                sx={{ fontWeight: "bold" }}
+                data-aos="fade-up"
+                data-aos-delay="200"
+                gutterBottom
+              >
+                Hong Pei
+              </Typography>
+              <Typography
+                variant="body1"
+                align="justify"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
+                I am an
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
       <Box sx={experienceBoxStyle}>
-        <Container>Experience</Container>
+        <Container maxWidth="md">
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography
+                variant="h3"
+                align="justify"
+                gutterBottom
+                data-aos="fade-in"
+              >
+                Experience
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <ExperienceCard
+                imgUrl="https://www.gic.com.sg/wp-content/uploads/2021/03/default-demo.jpg"
+                company="GIC Private Limited"
+                role="Software Engineer Intern"
+                duration="01/2023 - 06/2023"
+                location="Singapore"
+                details={[
+                  "Conducted full clean-up of React front-end styles and subsequently implemented dark mode.",
+                  "Refactored and migrated benchmark data pipeline to improve performance and enrich data.",
+                  "Led end-to-end deployments, working closely with users for requirements gathering and acceptance testing, and developers for operational support.",
+                ]}
+                tech={[
+                  <TypescriptOriginal size={30} />,
+                  <ReactOriginalWordmark size={30} />,
+                  <JavaOriginalWordmark size={30} />,
+                  <SpringOriginalWordmark size={30} />,
+                  <GitlabOriginalWordmark size={30} />,
+                  <JenkinsOriginal size={30} />,
+                ]}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <ExperienceCard
+                imgUrl="https://www.csit.gov.sg/images/default-source/csit-logo-and-icon/9559_csit-logo_fa-01.png?sfvrsn=948591f4_0"
+                company="Centre for Strategic Infocomm Technologies"
+                role="Software Engineer Intern"
+                duration="05/2022 - 07/2022"
+                location="Singapore"
+                details={[
+                  "Implemented monitoring filters in Spring Gateway to track metrics to better support user requests.",
+                  "Integrated Prometheus alerts with Grafana dashboard to monitor application health and usage.",
+                  "Assisted in development of translation tool in React frontend to streamline language support.",
+                ]}
+                tech={[
+                  <JavascriptOriginal size={30} />,
+                  <ReactOriginalWordmark size={30} />,
+                  <KotlinOriginal size={30} />,
+                  <SpringOriginalWordmark size={30} />,
+                  <GitlabOriginalWordmark size={30} />,
+                  <GrafanaOriginalWordmark size={30} />,
+                  <PrometheusOriginalWordmark size={30} />,
+                ]}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <ExperienceCard
+                imgUrl="https://www.csit.gov.sg/images/default-source/csit-logo-and-icon/9559_csit-logo_fa-01.png?sfvrsn=948591f4_0"
+                company="Centre for Strategic Infocomm Technologies"
+                role="Data Science Intern"
+                duration="11/2019 - 06/2020"
+                location="Singapore"
+                details={[
+                  "Undertook project on multilingual information retrieval, a specialised aspect of machine learning in natural language processing.",
+                  "Developed search tool on React with backend in Flask to interface results in an accessible manner.",
+                ]}
+                tech={[
+                  <JavascriptOriginal size={30} />,
+                  <ReactOriginalWordmark size={30} />,
+                  <PythonOriginalWordmark size={30} />,
+                  <FlaskOriginalWordmark size={30} />,
+                  <GithubOriginalWordmark size={30} />,
+                ]}
+              />
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
       <Box sx={educationBoxStyle}>
-        <Container>Education</Container>
+      <Container maxWidth="md">
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography
+                variant="h3"
+                align="justify"
+                gutterBottom
+                data-aos="fade-in"
+              >
+                Education
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <EducationCard
+                imgUrl="https://www.cmu.edu/brand/brand-guidelines/images/wordmarksquare-red-600x600.png"
+                school="Carnegie Mellon University"
+                duration="01/2024 - 12/2024"
+                location="Pittsburgh PA, United States"
+                details={[
+                  "Lorem Ipsum",
+                ]}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <EducationCard
+                imgUrl="https://www.nus.edu.sg/images/default-source/identity-images/NUS_logo_full-horizontal.jpg"
+                school="National University of Singapore"
+                duration="06/2020 - 12/2023"
+                location="Singapore"
+                details={[
+                  "Lorem Ipsum",
+                ]}
+              />
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
       <Box sx={projectsBoxStyle}>
-        <Container>Projects</Container>
+        <Container maxWidth="md">Projects</Container>
       </Box>
       <Box sx={miscBoxStyle}>
-        <Container>Misc</Container>
-      </Box> */}
-      <Typography>Watch this space!</Typography>
-    </Container>
+        <Container maxWidth="md">Misc</Container>
+      </Box>
+    </>
   );
 };
