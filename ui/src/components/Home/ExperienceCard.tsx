@@ -5,8 +5,6 @@ import {
   CardActionArea,
   CardHeader,
   Collapse,
-  IconButton,
-  IconButtonProps,
   List,
   ListItem,
   ListItemText,
@@ -16,24 +14,13 @@ import {
 import { experienceCardStyle } from "../../styles/Home";
 import styled from "@emotion/styled";
 import { ExpandMoreSharp } from "@mui/icons-material";
-
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
+import { ExpandMore } from "./ExpandMore";
 
 const TechIcon = styled(Paper)(() => ({
   width: 40,
   height: 40,
   padding: 5,
   backgroundColor: "#ffffff",
-}));
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton size="large" color="inherit" {...other} />;
-})(({ expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
 }));
 
 interface DetailListProps {
@@ -60,11 +47,7 @@ const DetailList = (props: DetailListProps) => {
         <ListItem dense>
           <ListItemText
             primary={
-              <Typography
-                variant="body2"
-                align="justify"
-                sx={{ color: "white" }}
-              >
+              <Typography variant="body2" align="justify" color="white">
                 ✦ {detail}
               </Typography>
             }
@@ -93,7 +76,7 @@ export const ExperienceCard = (props: ExperienceCardProps) => {
     setExpanded(!expanded);
   };
   return (
-    <Card raised sx={experienceCardStyle} variant="outlined" data-aos="fade-in">
+    <Card sx={experienceCardStyle} data-aos="fade-in">
       <CardActionArea onClick={handleExpandClick}>
         <CardHeader
           avatar={
@@ -123,17 +106,13 @@ export const ExperienceCard = (props: ExperienceCardProps) => {
             </ExpandMore>
           }
           title={
-            <Typography variant="h5" align="left">
+            <Typography variant="h5" align="left" color="white">
               {company}
             </Typography>
           }
           subheader={
             <>
-              <Typography
-                variant="subtitle2"
-                align="left"
-                sx={{ color: "white" }}
-              >
+              <Typography variant="subtitle2" align="left" color="white">
                 {role} ⬩ {duration} ⬩ {location}
               </Typography>
               <Collapse

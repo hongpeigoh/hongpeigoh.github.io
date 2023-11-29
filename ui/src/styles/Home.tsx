@@ -1,8 +1,10 @@
+import { basec, light, secon, white } from "./Colors";
+
 export const baseBoxStyle = {
   minHeight: "60vh",
   width: "100%",
-  py: 0,
-  border: "solid 1px red",
+  py: 5,
+  // border: "solid 1px red",
   display: "flex",
   alignItems: "center",
 };
@@ -13,14 +15,16 @@ export const bannerBoxStyle = {
   background: "center no-repeat url('/photoshoot.png')",
   backgroundSize: "900px",
   backgroundPositionY: "bottom",
+  py: 0,
 };
 export const experienceBoxStyle = {
   ...baseBoxStyle,
-  py: 5,
+  backgroundColor: secon,
 };
 export const educationBoxStyle = {
   ...baseBoxStyle,
-  py: 5,
+  backgroundColor: light,
+  color: basec,
 };
 export const projectsBoxStyle = {
   ...baseBoxStyle,
@@ -30,12 +34,18 @@ export const miscBoxStyle = {
 };
 
 export const baseCardStyle = {
-  background: "#0F131B",
-  color: "#ffffff",
+  background: "transparent",
+  boxShadow: "none",
 };
 export const experienceCardStyle = {
   ...baseCardStyle,
+  color: white,
 };
 export const educationCardStyle = {
   ...baseCardStyle,
+};
+export const projectCardStyle = {
+  ...baseCardStyle,
+  backgroundColor: white,
+  borderRadius: 2,
 };

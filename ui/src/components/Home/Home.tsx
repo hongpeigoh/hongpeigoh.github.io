@@ -23,6 +23,7 @@ import {
   TypescriptOriginal,
 } from "devicons-react";
 import { EducationCard } from "./EducationCard";
+import { ProjectCard } from "./ProjectCard";
 
 export const Home = () => {
   return (
@@ -138,7 +139,7 @@ export const Home = () => {
         </Container>
       </Box>
       <Box sx={educationBoxStyle}>
-      <Container maxWidth="md">
+        <Container maxWidth="md">
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <Typography
@@ -156,9 +157,7 @@ export const Home = () => {
                 school="Carnegie Mellon University"
                 duration="01/2024 - 12/2024"
                 location="Pittsburgh PA, United States"
-                details={[
-                  "Lorem Ipsum",
-                ]}
+                details={["Lorem Ipsum"]}
               />
             </Grid>
             <Grid item xs={12}>
@@ -167,16 +166,63 @@ export const Home = () => {
                 school="National University of Singapore"
                 duration="06/2020 - 12/2023"
                 location="Singapore"
-                details={[
-                  "Lorem Ipsum",
-                ]}
+                details={["Lorem Ipsum"]}
               />
             </Grid>
           </Grid>
         </Container>
       </Box>
       <Box sx={projectsBoxStyle}>
-        <Container maxWidth="md">Projects</Container>
+        <Container maxWidth="md">
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Typography
+                variant="h3"
+                align="justify"
+                gutterBottom
+                data-aos="fade-in"
+              >
+                Projects
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <ProjectCard
+                imgUrl="/iora1.png"
+                title="iORA ERP"
+                href="https://github.com/AY2122IS4103G10/iORA-ERP"
+                label="Repo"
+                text="Lorem Ipsum Dolor"
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <ProjectCard
+                imgUrl="/iora2.png"
+                title=""
+                href=""
+                label=""
+                text=""
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <ProjectCard
+                imgUrl="/iora3.png"
+                title=""
+                href=""
+                label=""
+                text=""
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <ProjectCard
+                imgUrl="https://www.cmu.edu/brand/brand-guidelines/images/wordmarksquare-red-600x600.png"
+                title=""
+                href=""
+                label=""
+                text=""
+              />
+            </Grid>
+          </Grid>
+        </Container>
       </Box>
       <Box sx={miscBoxStyle}>
         <Container maxWidth="md">Misc</Container>

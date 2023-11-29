@@ -5,29 +5,15 @@ import {
   CardActionArea,
   CardHeader,
   Collapse,
-  IconButton,
-  IconButtonProps,
   List,
   ListItem,
   ListItemText,
-  Paper,
   Typography,
 } from "@mui/material";
 import { educationCardStyle } from "../../styles/Home";
-import styled from "@emotion/styled";
 import { ExpandMoreSharp } from "@mui/icons-material";
-
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton size="large" color="inherit" {...other} />;
-})(({ expand }) => ({
-  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-  marginLeft: "auto",
-}));
+import { ExpandMore } from "./ExpandMore";
+import { basec } from "../../styles/Colors";
 
 interface DetailListProps {
   details: string[];
@@ -42,11 +28,7 @@ const DetailList = (props: DetailListProps) => {
         <ListItem dense>
           <ListItemText
             primary={
-              <Typography
-                variant="body2"
-                align="justify"
-                sx={{ color: "white" }}
-              >
+              <Typography variant="body2" align="justify" color={basec}>
                 ✦ {detail}
               </Typography>
             }
@@ -73,7 +55,7 @@ export const EducationCard = (props: EducationCardProps) => {
     setExpanded(!expanded);
   };
   return (
-    <Card raised sx={educationCardStyle} variant="outlined" data-aos="fade-in">
+    <Card sx={educationCardStyle} data-aos="fade-in">
       <CardActionArea onClick={handleExpandClick}>
         <CardHeader
           avatar={
@@ -103,17 +85,13 @@ export const EducationCard = (props: EducationCardProps) => {
             </ExpandMore>
           }
           title={
-            <Typography variant="h5" align="left">
+            <Typography variant="h5" align="left" color={basec}>
               {school}
             </Typography>
           }
           subheader={
             <>
-              <Typography
-                variant="subtitle2"
-                align="left"
-                sx={{ color: "white" }}
-              >
+              <Typography variant="subtitle2" align="left" color={basec}>
                 {duration} ⬩ {location}
               </Typography>
               <Collapse
