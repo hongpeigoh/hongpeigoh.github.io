@@ -48,7 +48,7 @@ const DetailList = (props: DetailListProps) => {
           <ListItemText
             primary={
               <Typography variant="body2" align="justify" color="white">
-                ✦ {detail}
+                • {detail}
               </Typography>
             }
           />

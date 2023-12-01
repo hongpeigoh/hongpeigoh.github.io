@@ -124,6 +124,22 @@ export const Home = () => {
             </Grid>
             <Grid item xs={12}>
               <ExperienceCard
+                imgUrl="/soc.jpg"
+                company="School of Computing, National University of Singapore"
+                role="Teaching Assistant (Data Structures and Algorithms)"
+                duration="08/2021 - 04/2022"
+                location="Singapore"
+                details={[
+                  "Conducted Data Structures and Algorithms laboratory sessions for two semesters to teach students to use data structures and algorithms in Java.",
+                  "Assisted in invigilating examinations and grading student assignments.",
+                ]}
+                tech={[
+                  <JavaOriginalWordmark size={30} />,
+                ]}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <ExperienceCard
                 imgUrl="https://www.csit.gov.sg/images/default-source/csit-logo-and-icon/9559_csit-logo_fa-01.png?sfvrsn=948591f4_0"
                 company="Centre for Strategic Infocomm Technologies"
                 role="Data Science Intern"
@@ -162,18 +178,24 @@ export const Home = () => {
               <EducationCard
                 imgUrl="https://www.cmu.edu/brand/brand-guidelines/images/wordmarksquare-red-600x600.png"
                 school="Carnegie Mellon University"
+                degree="Master of Science in Engineering and Technology Innovation Management (MS ETIM)"
                 duration="01/2024 - 12/2024"
                 location="Pittsburgh PA, United States"
-                details={["Lorem Ipsum"]}
+                // details={[""]}
               />
             </Grid>
             <Grid item xs={12}>
               <EducationCard
                 imgUrl="https://www.nus.edu.sg/images/default-source/identity-images/NUS_logo_full-horizontal.jpg"
                 school="National University of Singapore"
-                duration="06/2020 - 12/2023"
+                degree="Bachelor of Computing in Information Systems (BComp IS)"
+                duration="06/2020 - 12/2024"
                 location="Singapore"
-                details={["Lorem Ipsum"]}
+                details={[
+                  "GPA: 4.78/5.00",
+                  "Specialisation in Financial Technology ⬩ Minor in Economics ⬩ USP/NUS College",
+                  "Honours: AY20/21 Semester 1 Dean’s List ⬩ AY20/21 USP Honour Roll ⬩ AY22/23 NUS College Recognition Award",
+                ]}
               />
             </Grid>
           </Grid>
@@ -304,6 +326,15 @@ export const Home = () => {
                 href="https://github.com/hongpeigoh/HouseSorter"
                 label="Repo"
                 text="A simple colouring algorithm for sorting freshmen/first-years into houses referencing data from their faculties, schools, etc."
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <MiscCard
+                imgUrl="/nusc.png"
+                title="NUS College Breakaway Visualiser"
+                href="/widgets/nusc"
+                label="Widget"
+                text="A visualiser to render NUS College's Breakaway text."
               />
             </Grid>
           </Grid>

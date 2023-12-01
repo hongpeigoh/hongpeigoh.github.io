@@ -29,7 +29,7 @@ const DetailList = (props: DetailListProps) => {
           <ListItemText
             primary={
               <Typography variant="body2" align="justify" color={basec}>
-                ✦ {detail}
+                • {detail}
               </Typography>
             }
           />
@@ -42,21 +42,23 @@ const DetailList = (props: DetailListProps) => {
 interface EducationCardProps {
   imgUrl: string;
   school: string;
+  degree: string;
   location: string;
   duration: string;
-  details: string[];
+  details?: string[];
 }
 
 export const EducationCard = (props: EducationCardProps) => {
-  const { imgUrl, school, duration, location, details } = props;
+  const { imgUrl, school, degree, duration, location, details } = props;
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
     <Card sx={educationCardStyle} data-aos="fade-in">
-      <CardActionArea onClick={handleExpandClick}>
+      <CardActionArea onClick={details && handleExpandClick}>
         <CardHeader
           avatar={
             <Avatar
@@ -74,7 +76,7 @@ export const EducationCard = (props: EducationCardProps) => {
               {" "}
             </Avatar>
           }
-          action={
+          action={ details &&
             <ExpandMore
               expand={expanded}
               onClick={handleExpandClick}
@@ -92,27 +94,34 @@ export const EducationCard = (props: EducationCardProps) => {
           subheader={
             <>
               <Typography variant="subtitle2" align="left" color={basec}>
+                {degree}
+              </Typography>
+              <Typography variant="subtitle2" align="left" color={basec}>
                 {duration} ⬩ {location}
               </Typography>
-              <Collapse
-                in={expanded}
-                timeout="auto"
-                unmountOnExit
-                sx={{ display: { xs: "none", md: "block" } }}
-              >
-                <DetailList details={details} />
-              </Collapse>
+              {details && (
+                <Collapse
+                  in={expanded}
+                  timeout="auto"
+                  unmountOnExit
+                  sx={{ display: { xs: "none", md: "block" } }}
+                >
+                  <DetailList details={details} />
+                </Collapse>
+              )}
             </>
           }
         />
-        <Collapse
-          in={expanded}
-          timeout="auto"
-          unmountOnExit
-          sx={{ display: { xs: "block", md: "none" } }}
-        >
-          <DetailList details={details} />
-        </Collapse>
+        {details && (
+          <Collapse
+            in={expanded}
+            timeout="auto"
+            unmountOnExit
+            sx={{ display: { xs: "block", md: "none" } }}
+          >
+            <DetailList details={details} />
+          </Collapse>
+        )}
       </CardActionArea>
     </Card>
   );
