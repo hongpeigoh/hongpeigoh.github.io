@@ -1,12 +1,12 @@
 import { basec, light, secon, white } from "./Colors";
 
 export const baseBoxStyle = {
-  minHeight: "60vh",
+  minHeight: "30vh",
   width: "100%",
   py: 5,
   // border: "solid 1px red",
   display: "flex",
-  alignItems: "center",
+  alignItems: "start",
 };
 
 export const bannerBoxStyle = {
@@ -15,6 +15,7 @@ export const bannerBoxStyle = {
   background: "center no-repeat url('/photoshoot.png')",
   backgroundSize: "900px",
   backgroundPositionY: "bottom",
+  alignItems: "center",
   py: 0,
 };
 export const experienceBoxStyle = {
@@ -45,6 +46,11 @@ export const educationCardStyle = {
   ...baseCardStyle,
 };
 export const projectCardStyle = {
+  ...baseCardStyle,
+  backgroundColor: white,
+  borderRadius: 2,
+};
+export const miscCardStyle = {
   ...baseCardStyle,
   backgroundColor: white,
   borderRadius: 2,

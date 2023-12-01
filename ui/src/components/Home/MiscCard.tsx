@@ -4,45 +4,38 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { projectCardStyle } from "../../styles/Home";
+import { miscCardStyle } from "../../styles/Home";
 
-interface ProjectCardProps {
+interface MiscCardProps {
   imgUrl: string;
   title: string;
   subtitle?: string;
   href: string;
   label: string;
   text: string;
-  tech: any[];
 }
 
-export const ProjectCard = (props: ProjectCardProps) => {
-  const { imgUrl, title, subtitle, href, label, text, tech } = props;
+export const MiscCard = (props: MiscCardProps) => {
+  const { imgUrl, title, subtitle, href, label, text } = props;
   return (
-    <Card sx={projectCardStyle} data-aos="fade-in">
+    <Card sx={miscCardStyle} data-aos="fade-in">
       <CardMedia sx={{ height: 260 }} image={imgUrl} title={title} />
       <CardContent sx={{ px: 3 }}>
         <Typography gutterBottom={!subtitle} variant="h5" align="left">
           {title}
         </Typography>
-        { subtitle && <Typography gutterBottom variant="caption" component="div" align="left">
-          {subtitle}
-        </Typography>}
+        {subtitle && (
+          <Typography
+            gutterBottom
+            variant="caption"
+            component="div"
+            align="left"
+          >
+            {subtitle}
+          </Typography>
+        )}
         <Typography variant="body2" color="text.secondary" align="justify">
           {text}
-        </Typography>
-        <Typography
-          sx={{
-            color: "white",
-            display: "flex",
-            gap: "8px",
-            flexWrap: "wrap",
-            pt: 2,
-          }}
-        >
-          {tech.map((brand) => (
-            <>{brand}</>
-          ))}
         </Typography>
       </CardContent>
       <CardActions sx={{ px: 3, pb: 3 }}>
