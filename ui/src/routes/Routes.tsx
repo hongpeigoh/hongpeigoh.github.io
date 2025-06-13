@@ -5,6 +5,8 @@ import { Layout } from "../components/Layout/Layout";
 import { Home } from "../components/Home/Home";
 import { About } from "../components/About/About";
 import { Nusc } from "../components/Nusc/Nusc";
+import { BlogHome } from "../components/Blog/BlogHome";
+import { BlogPage } from "../components/Blog/BlogPage";
 
 export const routes: RouteObject[] = [
   {
@@ -14,6 +16,8 @@ export const routes: RouteObject[] = [
     children: [
       { index: true, element: <Home /> },
       { path: "/about", element: <About /> },
+      { path: "/blog", element: <BlogHome /> },
+      { path:"/blog/:slug", element: <BlogPage /> },
       { path: "/widgets/nusc", element: <Nusc /> },
     ],
   },

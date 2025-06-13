@@ -1,0 +1,202 @@
+{
+  "introduction": {
+    "welcome": "Hello and welcome! I am",
+    "name": "Hong Pei",
+    "blurb": "I'm a software engineer with a passion for building thoughtful, practical solutions through code. On the main page, you'll find my resume, which gives a snapshot of my background and experience. Feel free to explore and see some of the projects I've worked on — each one has taught me something new and helped me grow. Thanks for taking the time to visit!"
+  },
+  "experiences": [
+    {
+      "imgUrl": "https://www.csit.gov.sg/images/default-source/csit-logo-and-icon/9559_csit-logo_fa-01.png",
+      "company": "Centre for Strategic Infocomm Technologies",
+      "role": "Software Engineer",
+      "duration": "Apr 2025 - Present",
+      "location": "Singapore",
+      "details": [],
+      "tech": ["typescript", "react", "java", "spring", "gitlab", "kubernetes"]
+    },
+    {
+      "imgUrl": "https://cdn.cookielaw.org/logos/356f77a2-eb53-4146-ba66-df614f266841/5368e276-ae2d-4671-8f4a-e56a019150c2/7c112fc8-28d0-4e66-9fa9-c70daf8d700a/Palantir_Logo_300dpi_(1).png",
+      "company": "Palantir Technologies",
+      "role": "Forward Deployed Software Engineer Intern",
+      "duration": "May 2024 - Aug 2024",
+      "location": "London, UK",
+      "details": [
+        "Built pipelining use-cases in the insurance context on Palantir's AI Platform to optimise data triage and unification workflows, saving client data engineers time in ingesting and processing tabular data.",
+        "Demonstrated product features and worked with clients to integrate new product features in current workflows.",
+        "Developed a product enhancement to visualise product installations in week-long Hack Week"
+      ],
+      "tech": ["typescript", "foundry", "aip", "react"]
+    },
+    {
+      "imgUrl": "https://www.gic.com.sg/wp-content/uploads/2021/03/default-demo.jpg",
+      "company": "GIC Private Limited",
+      "role": "Software Engineer Intern",
+      "duration": "Jan 2023 - Jun 2023",
+      "location": "Singapore",
+      "details": [
+        "Conducted full clean-up of React front-end styles and subsequently implemented dark mode.",
+        "Refactored and migrated benchmark data pipeline to improve performance and enrich data.",
+        "Led end-to-end deployments, working closely with users for requirements gathering and acceptance testing, and developers for operational support."
+      ],
+      "tech": ["typescript", "react", "java", "spring", "gitlab", "jenkins"]
+    },
+    {
+      "imgUrl": "https://www.csit.gov.sg/images/default-source/csit-logo-and-icon/9559_csit-logo_fa-01.png",
+      "company": "Centre for Strategic Infocomm Technologies",
+      "role": "Software Engineer Intern",
+      "duration": "May 2022 - Jul 2022",
+      "location": "Singapore",
+      "details": [
+        "Implemented monitoring filters in Spring Gateway to track metrics to better support user requests.",
+        "Integrated Prometheus alerts with Grafana dashboard to monitor application health and usage.",
+        "Assisted in development of translation tool in React frontend to streamline language support."
+      ],
+      "tech": [
+        "javascript",
+        "react",
+        "kotlin",
+        "spring",
+        "gitlab",
+        "grafana",
+        "prometheus"
+      ]
+    },
+    {
+      "imgUrl": "/soc.jpg",
+      "company": "School of Computing, National University of Singapore",
+      "role": "Teaching Assistant (Data Structures and Algorithms)",
+      "duration": "Aug 2021 - Apr 2022",
+      "location": "Singapore",
+      "details": [
+        "Conducted Data Structures and Algorithms laboratory sessions for two semesters to teach students to use data structures and algorithms in Java.",
+        "Assisted in invigilating examinations and grading student assignments."
+      ],
+      "tech": ["java"]
+    },
+    {
+      "imgUrl": "https://www.csit.gov.sg/images/default-source/csit-logo-and-icon/9559_csit-logo_fa-01.png",
+      "company": "Centre for Strategic Infocomm Technologies",
+      "role": "Data Science Intern",
+      "duration": "Nov 2019 - Jun 2020",
+      "location": "Singapore",
+      "details": [
+        "Undertook project on multilingual information retrieval, a specialised aspect of machine learning in natural language processing.",
+        "Developed search tool on React with backend in Flask to interface results in an accessible manner."
+      ],
+      "tech": ["javascript", "react", "python", "flask", "github"]
+    }
+  ],
+  "education": [
+    {
+      "imgUrl": "https://www.cmu.edu/brand/brand-guidelines/images/wordmarksquare-red-600x600.png",
+      "school": "Carnegie Mellon University",
+      "degree": "Master of Science in Engineering and Technology Innovation Management (MS ETIM)",
+      "duration": "Jan 2024 - Dec 2024",
+      "location": "Pittsburgh PA, United States",
+      "grade": "GPA: 3.79/4.00"
+    },
+    {
+      "imgUrl": "https://www.nus.edu.sg/images/default-source/identity-images/NUS_logo_full-horizontal.jpg",
+      "school": "National University of Singapore",
+      "degree": "Bachelor of Computing in Information Systems (BComp IS)",
+      "duration": "Jun 2020 - Dec 2024",
+      "location": "Singapore",
+      "grade": "GPA: 4.78/5.00",
+      "details": [
+        "Specialisation in Financial Technology ⬩ Minor in Economics ⬩ USP/NUS College",
+        "Honours: AY20/21 Semester 1 Dean's List ⬩ AY20/21 USP Honour Roll ⬩ AY22/23 NUS College Recognition Award"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "imgUrl": "/dag4.png",
+      "title": "EZProperty",
+      "subtitle": "Data Engineering with Airflow",
+      "date": "Jan 2023 - Apr 2023",
+      "href": "https://github.com/AY22-23S2-IS3107-Group6/ezproperty",
+      "label": "Repo",
+      "text": "A data engineering project that parses data from HDB, URA, and other third party data sources to understand applications of data in the commercial housing market.",
+      "tech": ["javascript", "react", "python", "apache", "mysql", "mongodb"]
+    },
+    {
+      "imgUrl": "/iora2.png",
+      "title": "iORA Integrated Enterprise System",
+      "subtitle": "Information Systems Capstone Project",
+      "date": "Jan 2022 - Apr 2022",
+      "href": "https://github.com/AY2122IS4103G10/iORA-ERP",
+      "label": "Repo",
+      "text": "An enterprise system designed to digitise and streamline iORA Fashion's Enterprise Resource Planning, Point-of-Sales and Customer Relationship Management sytems.",
+      "tech": [
+        "javascript",
+        "react",
+        "redux",
+        "tailwind",
+        "java",
+        "spring",
+        "stripe",
+        "jwt",
+        "github"
+      ]
+    },
+    {
+      "imgUrl": "/iora1.png",
+      "title": "iORA E-Commerce System",
+      "subtitle": "Information Systems Capstone Project",
+      "href": "https://github.com/AY2122IS4103G10/iORA-ERP",
+      "date": "Jan 2022 - Apr 2022",
+      "label": "Repo",
+      "text": "An e-commerce system integrated with the iORA Enterprise System, providing customers with a seamless experience while shopping on iORA's online store.",
+      "tech": [
+        "javascript",
+        "react",
+        "redux",
+        "tailwind",
+        "java",
+        "spring",
+        "stripe",
+        "jwt",
+        "github"
+      ]
+    },
+    {
+      "imgUrl": "/mulling1.png",
+      "title": "MulLing",
+      "subtitle": "Multilingual Information Retrieval Project",
+      "date": "Nov 2019 - Jun 2020",
+      "href": "https://github.com/hongpeigoh/MulLing",
+      "label": "Repo",
+      "text": "A toolkit to evaluate Information Retrieval Methods in a multilingual setting, providing a platform for initiating a self-trained NLP model referencing Facebook's MUSE.",
+      "tech": ["javascript", "react", "python", "flask", "github"]
+    }
+  ],
+  "misc": [
+    {
+      "imgUrl": "/blog.png",
+      "title": "Developing, Applications",
+      "subtitle": "Critical Reflection Portfolio",
+      "date": "Aug 2023 - Dec 2023",
+      "href": "",
+      "label": "Portfolio",
+      "text": "A portfolio reflecting upon my learning in Information Systems and the University Scholars Programme (USP)/NUS College."
+    },
+    {
+      "imgUrl": "/nusc.png",
+      "title": "NUS College Breakaway Visualiser",
+      "subtitle": "Design Tool",
+      "date": "Mar 2023",
+      "href": "/widgets/nusc",
+      "label": "Widget",
+      "text": "A simple visualiser to render NUS College's Breakaway text with reference to NUS College design guidelines."
+    },
+    {
+      "imgUrl": "https://nususc.com/static/media/AboutUs.870c181a.jpg",
+      "title": "House Sorter",
+      "subtitle": "Colouring Algorithm",
+      "date": "May 2021",
+      "href": "https://github.com/hongpeigoh/HouseSorter",
+      "label": "Repo",
+      "text": "A simple colouring algorithm for sorting freshmen/first-years into houses referencing data from their faculties, schools, etc."
+    }
+  ]
+}

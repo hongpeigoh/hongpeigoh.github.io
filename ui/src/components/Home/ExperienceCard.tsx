@@ -15,6 +15,7 @@ import { experienceCardStyle } from "../../styles/Home";
 import styled from "@emotion/styled";
 import { ExpandMoreSharp } from "@mui/icons-material";
 import { ExpandMore } from "./ExpandMore";
+import { mapTechToIcon } from "./mapper/maps";
 
 const TechIcon = styled(Paper)(() => ({
   width: 40,
@@ -37,9 +38,9 @@ const DetailList = (props: DetailListProps) => {
         dense
         sx={{ color: "white", display: "flex", gap: "8px", flexWrap: "wrap" }}
       >
-        {tech.map((brand) => (
+        {tech.map((name) => (
           <TechIcon elevation={2} square={false}>
-            {brand}
+            {mapTechToIcon.get(name)}
           </TechIcon>
         ))}
       </ListItem>
@@ -66,7 +67,7 @@ interface ExperienceCardProps {
   location: string;
   duration: string;
   details: string[];
-  tech: any[];
+  tech: string[];
 }
 
 export const ExperienceCard = (props: ExperienceCardProps) => {
