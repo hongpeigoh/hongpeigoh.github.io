@@ -1,0 +1,18 @@
+export const mrtImageBoxStyle = (zoom: number, position: { x: number, y: number}, isDragging: boolean) => ({
+  display: "block",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  backgroundImage: `url(/systemmap.png)`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  minHeight: "40vw",
+  width: "60vw",
+  transition: "all 0.3s ease",
+  transform: `scale(${zoom})`,
+  position: "absolute",
+  cursor: isDragging ? "grabbing" : "grab",
+  left: `calc(50% + ${position.x + 120 - 630}px)`,
+  top: `${position.y + 50}px`,
+  overflow: "hidden",
+});
