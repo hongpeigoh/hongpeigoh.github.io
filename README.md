@@ -1,2 +1,3 @@
-# hongpeigoh.github.io
-Hong Pei's Website v3
+# Hong Pei's GitHub Page
+
+Hello, and welcome to my GitHub page! This is my testbed for new developments.

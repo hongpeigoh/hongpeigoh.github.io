@@ -12,9 +12,6 @@ export const baseBoxStyle = {
 export const bannerBoxStyle = {
   ...baseBoxStyle,
   minHeight: "100vh",
-  background: "center no-repeat url('/photoshoot.png')",
-  backgroundSize: "900px",
-  backgroundPositionY: "bottom",
   alignItems: "center",
   py: 0,
 };

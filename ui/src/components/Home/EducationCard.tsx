@@ -25,7 +25,7 @@ const DetailList = (props: DetailListProps) => {
   return (
     <List>
       {details.map((detail) => (
-        <ListItem dense>
+        <ListItem dense style={{ paddingBottom: 0 }}>
           <ListItemText
             primary={
               <Typography variant="body2" align="justify" color={basec}>
@@ -43,13 +43,14 @@ interface EducationCardProps {
   imgUrl: string;
   school: string;
   degree: string;
-  location: string;
   duration: string;
+  location: string;
+  grade: string;
   details?: string[];
 }
 
 export const EducationCard = (props: EducationCardProps) => {
-  const { imgUrl, school, degree, duration, location, details } = props;
+  const { imgUrl, school, degree, duration, location, grade, details } = props;
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -76,15 +77,17 @@ export const EducationCard = (props: EducationCardProps) => {
               {" "}
             </Avatar>
           }
-          action={ details &&
-            <ExpandMore
-              expand={expanded}
-              onClick={handleExpandClick}
-              aria-expanded={expanded}
-              aria-label="Show more"
-            >
-              <ExpandMoreSharp />
-            </ExpandMore>
+          action={
+            details && (
+              <ExpandMore
+                expand={expanded}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="Show more"
+              >
+                <ExpandMoreSharp />
+              </ExpandMore>
+            )
           }
           title={
             <Typography variant="h5" align="left" color={basec}>
@@ -96,8 +99,8 @@ export const EducationCard = (props: EducationCardProps) => {
               <Typography variant="subtitle2" align="left" color={basec}>
                 {degree}
               </Typography>
-              <Typography variant="subtitle2" align="left" color={basec}>
-                {duration} ⬩ {location}
+              <Typography variant="caption" component="div" align="left" color={basec}>
+                {duration} ⬩ {location} ⬩ {grade}
               </Typography>
               {details && (
                 <Collapse

@@ -5,18 +5,20 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { miscCardStyle } from "../../styles/Home";
+import { greyc } from "../../styles/Colors";
 
 interface MiscCardProps {
   imgUrl: string;
   title: string;
   subtitle?: string;
+  date?: string;
   href: string;
   label: string;
   text: string;
 }
 
 export const MiscCard = (props: MiscCardProps) => {
-  const { imgUrl, title, subtitle, href, label, text } = props;
+  const { imgUrl, title, subtitle, date, href, label, text } = props;
   return (
     <Card sx={miscCardStyle} data-aos="fade-in">
       <CardMedia sx={{ height: 260 }} image={imgUrl} title={title} />
@@ -32,6 +34,17 @@ export const MiscCard = (props: MiscCardProps) => {
             align="left"
           >
             {subtitle}
+          </Typography>
+        )}
+        {date && (
+          <Typography
+            gutterBottom
+            variant="caption"
+            component="div"
+            align="left"
+            color={greyc}
+          >
+            {date}
           </Typography>
         )}
         <Typography variant="body2" color="text.secondary" align="justify">

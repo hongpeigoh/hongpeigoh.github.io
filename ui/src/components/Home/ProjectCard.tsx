@@ -5,11 +5,13 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { projectCardStyle } from "../../styles/Home";
+import { greyc } from "../../styles/Colors";
 
 interface ProjectCardProps {
   imgUrl: string;
   title: string;
   subtitle?: string;
+  date?: string;
   href: string;
   label: string;
   text: string;
@@ -17,7 +19,7 @@ interface ProjectCardProps {
 }
 
 export const ProjectCard = (props: ProjectCardProps) => {
-  const { imgUrl, title, subtitle, href, label, text, tech } = props;
+  const { imgUrl, title, subtitle, date, href, label, text, tech } = props;
   return (
     <Card sx={projectCardStyle} data-aos="fade-in">
       <CardMedia sx={{ height: 260 }} image={imgUrl} title={title} />
@@ -25,9 +27,22 @@ export const ProjectCard = (props: ProjectCardProps) => {
         <Typography gutterBottom={!subtitle} variant="h5" align="left">
           {title}
         </Typography>
-        { subtitle && <Typography gutterBottom variant="caption" component="div" align="left">
-          {subtitle}
-        </Typography>}
+        {subtitle && (
+          <Typography variant="caption" component="div" align="left">
+            {subtitle}
+          </Typography>
+        )}
+        {date && (
+          <Typography
+            gutterBottom
+            variant="caption"
+            component="div"
+            align="left"
+            color={greyc}
+          >
+            {date}
+          </Typography>
+        )}
         <Typography variant="body2" color="text.secondary" align="justify">
           {text}
         </Typography>
