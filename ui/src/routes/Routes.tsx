@@ -7,6 +7,7 @@ import { About } from "../components/About/About";
 import { Nusc } from "../components/Nusc/Nusc";
 import { BlogHome } from "../components/Blog/BlogHome";
 import { BlogPage } from "../components/Blog/BlogPage";
+import { WeddingHome } from "../components/Wedding/WeddingHome";
 
 export const routes: RouteObject[] = [
   {
@@ -17,8 +18,9 @@ export const routes: RouteObject[] = [
       { index: true, element: <Home /> },
       { path: "/about", element: <About /> },
       { path: "/blog", element: <BlogHome /> },
-      { path:"/blog/:slug", element: <BlogPage /> },
+      { path: "/blog/:slug", element: <BlogPage /> },
       { path: "/widgets/nusc", element: <Nusc /> },
+      { path: "/widgets/wedding", element: <WeddingHome /> },
     ],
   },
 ];
