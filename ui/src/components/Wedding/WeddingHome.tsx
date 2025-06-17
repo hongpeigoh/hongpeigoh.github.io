@@ -6,7 +6,6 @@ import {
   Tab,
   Typography,
   Fade,
-  Link,
   Stack,
   ThemeProvider,
   CssBaseline,
@@ -19,13 +18,13 @@ import { basec, greyc, white } from "../../styles/Colors";
 import { KeyboardArrowDown, OpenInNewOutlined } from "@mui/icons-material";
 
 const images = [
-  "/wedding1.jpg",
+  "/wedding7.jpg",
   "/wedding2.jpg",
   "/wedding3.jpg",
-  "/wedding4.jpg",
   "/wedding5.jpg",
+  "/wedding4.jpg",
+  "/wedding1.jpg",
   "/wedding6.jpg",
-  "/wedding7.jpg",
 ];
 
 const theme = createTheme({
@@ -71,10 +70,10 @@ const ScrollDownButton = () => {
           backgroundColor: greyc,
         },
         display: {
-              xs: "flex",
-              sm: "flex",
-              md: "none",
-            },
+          xs: "flex",
+          sm: "flex",
+          md: "none",
+        },
       }}
     >
       <KeyboardArrowDown fontSize="large" />
@@ -180,7 +179,7 @@ const SidebarComponent = () => {
       >
         <Tab label="Save the Date" />
         <Tab label="RSVP" disabled />
-        <Tab label="Programmes" disabled />
+        {/* <Tab label="Programmes" disabled /> */}
       </Tabs>
 
       <Box sx={{ mt: 2 }}>
@@ -205,15 +204,14 @@ const SidebarComponent = () => {
               spacing={2}
               alignItems="center"
               justifyContent="center"
-              sx={{ mt: 2 }}
+              sx={{ my: 2 }}
             >
               <AddToCalendarButton
                 size="3"
                 name="Hong Pei & Michelle's Wedding Day"
                 options={[
-                  "Apple",
-                  "Google",
                   "iCal",
+                  "Google",
                   "Microsoft365",
                   "Outlook.com",
                 ]}
@@ -266,6 +264,9 @@ const SidebarComponent = () => {
 };
 
 export const WeddingHome = () => {
+  useEffect(() => {
+    document.title = "Hong Pei and Michelle's Wedding";
+  }, []);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
