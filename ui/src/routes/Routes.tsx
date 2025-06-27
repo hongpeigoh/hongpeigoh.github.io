@@ -21,6 +21,7 @@ export const routes: RouteObject[] = [
       { path: "/blog/:slug", element: <BlogPage /> },
       { path: "/widgets/nusc", element: <Nusc /> },
       { path: "/widgets/wedding", element: <WeddingHome /> },
+      { path: "/widgets/wedding/:subpath", element: <WeddingHome /> },
     ],
   },
 ];
