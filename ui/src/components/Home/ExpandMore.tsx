@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 import { IconButton, type IconButtonProps } from "@mui/material";
 
 interface ExpandMoreProps extends IconButtonProps {
-	expand: boolean;
+  expand: boolean;
 }
 export const ExpandMore = styled((props: ExpandMoreProps) => {
-	const { expand, ...other } = props;
-	return <IconButton size="large" color="inherit" {...other} />;
+  const { expand, ...other } = props;
+  return <IconButton size="large" color="inherit" {...other} />;
 })(({ expand }) => ({
-	transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-	marginLeft: "auto",
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
 }));

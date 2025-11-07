@@ -9,20 +9,20 @@ import { Nusc } from "../components/Nusc/Nusc";
 import { WeddingHome } from "../components/Wedding/WeddingHome";
 
 export const routes: RouteObject[] = [
-	{
-		path: "/",
-		element: <Layout />,
-		errorElement: <ErrorComponent />,
-		children: [
-			{ index: true, element: <Home /> },
-			{ path: "/about", element: <About /> },
-			{ path: "/blog", element: <BlogHome /> },
-			{ path: "/blog/:slug", element: <BlogPage /> },
-			{ path: "/widgets/nusc", element: <Nusc /> },
-			{ path: "/widgets/wedding", element: <WeddingHome /> },
-			{ path: "/widgets/wedding/:subpath", element: <WeddingHome /> },
-		],
-	},
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <ErrorComponent />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "/about", element: <About /> },
+      { path: "/blog", element: <BlogHome /> },
+      { path: "/blog/:slug", element: <BlogPage /> },
+      { path: "/widgets/nusc", element: <Nusc /> },
+      { path: "/widgets/wedding", element: <WeddingHome /> },
+      { path: "/widgets/wedding/:subpath", element: <WeddingHome /> },
+    ],
+  },
 ];
 
 export const router = createBrowserRouter(routes);

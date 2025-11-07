@@ -5,9 +5,9 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 export const Layout = () => (
-	<Box sx={viewportStyle}>
-		{/* <Header /> */}
-		<Outlet />
-		{/* <Footer /> */}
-	</Box>
+  <Box sx={viewportStyle}>
+    {/* <Header /> */}
+    <Outlet />
+    {/* <Footer /> */}
+  </Box>
 );

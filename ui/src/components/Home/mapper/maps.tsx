@@ -1,34 +1,34 @@
 import {
-	ApachePlainWordmark,
-	FlaskOriginalWordmark,
-	GithubOriginalWordmark,
-	GitlabOriginalWordmark,
-	GrafanaOriginalWordmark,
-	JavaOriginalWordmark,
-	JavascriptOriginal,
-	JenkinsOriginal,
-	KubernetesPlainWordmark,
-	MongodbPlainWordmark,
-	MysqlPlainWordmark,
-	PrometheusOriginalWordmark,
-	PythonOriginalWordmark,
-	ReactOriginalWordmark,
-	ReduxOriginal,
-	SpringOriginalWordmark,
-	TailwindcssPlain,
-	TypescriptOriginal,
+  ApachePlainWordmark,
+  FlaskOriginalWordmark,
+  GithubOriginalWordmark,
+  GitlabOriginalWordmark,
+  GrafanaOriginalWordmark,
+  JavaOriginalWordmark,
+  JavascriptOriginal,
+  JenkinsOriginal,
+  KubernetesPlainWordmark,
+  MongodbPlainWordmark,
+  MysqlPlainWordmark,
+  PrometheusOriginalWordmark,
+  PythonOriginalWordmark,
+  ReactOriginalWordmark,
+  ReduxOriginal,
+  SpringOriginalWordmark,
+  TailwindcssPlain,
+  TypescriptOriginal,
 } from "devicons-react";
 
 export const mapTechToIcon = new Map<string, JSX.Element>();
 mapTechToIcon.set(
-	"aip",
-	<img src="/aip.png" width={30} height={30} alt={"aip-logo"} />,
+  "aip",
+  <img src="/aip.png" width={30} height={30} alt={"aip-logo"} />,
 );
 mapTechToIcon.set("apache", <ApachePlainWordmark size={30} />);
 mapTechToIcon.set("flask", <FlaskOriginalWordmark size={30} />);
 mapTechToIcon.set(
-	"foundry",
-	<img src="/foundry.png" width={30} height={30} alt={"foundry-logo"} />,
+  "foundry",
+  <img src="/foundry.png" width={30} height={30} alt={"foundry-logo"} />,
 );
 mapTechToIcon.set("github", <GithubOriginalWordmark size={30} />);
 mapTechToIcon.set("gitlab", <GitlabOriginalWordmark size={30} />);
