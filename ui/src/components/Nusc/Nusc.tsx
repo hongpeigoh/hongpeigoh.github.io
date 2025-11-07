@@ -81,19 +81,19 @@ const Breakaway = (props: BreakawayProps) => {
 	};
 	return (
 		<Grid container>
-			<Grid item xs={6} sx={textboxContainerLeftStyle}>
+			<Grid size={{ xs: 6 }} sx={textboxContainerLeftStyle}>
 				<Stack>
-					{leftChunks.map((subtext, index) => (
-						<Typography key={index} sx={leftTextboxStyle} variant="body1">
+					{leftChunks.map((subtext) => (
+						<Typography key={subtext} sx={leftTextboxStyle} variant="body1">
 							&nbsp;{subtext}
 						</Typography>
 					))}
 				</Stack>
 			</Grid>
-			<Grid item xs={6} sx={textboxContainerRightStyle}>
+			<Grid size={{ xs: 6 }} sx={textboxContainerRightStyle}>
 				<Stack>
-					{rightChunks.map((subtext, index) => (
-						<Typography key={index} sx={rightTextboxStyle} variant="body1">
+					{rightChunks.map((subtext) => (
+						<Typography key={subtext} sx={rightTextboxStyle} variant="body1">
 							{subtext}&nbsp;
 						</Typography>
 					))}
@@ -211,8 +211,8 @@ export const Nusc = () => {
 					<Grow in={show}>
 						<Paper elevation={12} sx={descriptionStyle}>
 							<Grid container spacing={2}>
-								<Grid item xs={12}></Grid>
-								<Grid item xs={12}>
+								<Grid size={{ xs: 12 }}></Grid>
+								<Grid size={{ xs: 12 }}>
 									<TextField
 										id="outlined-multiline-flexible"
 										label="Enter here"
@@ -224,7 +224,7 @@ export const Nusc = () => {
 										fullWidth
 									/>
 								</Grid>
-								<Grid item xs={6} md={4}>
+								<Grid size={{ xs: 6, md: 4 }}>
 									<FormControl fullWidth>
 										<InputLabel id="font-color-label">Font Color</InputLabel>
 										<Select
@@ -248,7 +248,7 @@ export const Nusc = () => {
 										</Select>
 									</FormControl>
 								</Grid>
-								<Grid item xs={6} md={4}>
+								<Grid size={{ xs: 6, md: 4 }}>
 									<FormControl fullWidth>
 										<InputLabel id="font-size-label">Font Size</InputLabel>
 										<Select
@@ -264,7 +264,7 @@ export const Nusc = () => {
 										</Select>
 									</FormControl>
 								</Grid>
-								<Grid item xs={6} md={4}>
+								<Grid size={{ xs: 6, md: 4 }}>
 									<FormControl fullWidth>
 										<InputLabel id="bg-color-label">
 											Background Color

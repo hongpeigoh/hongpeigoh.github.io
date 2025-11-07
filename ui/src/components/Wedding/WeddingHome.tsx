@@ -183,10 +183,10 @@ export const WeddingHome = () => {
 			<CssBaseline />
 			<Box sx={weddingContainer}>
 				<Grid container spacing={0}>
-					<Grid item xs={12} md={6} lg={8}>
+					<Grid size={{ xs: 12, md: 6, lg: 8 }}>
 						<Slideshow />
 					</Grid>
-					<Grid item xs={12} md={6} lg={4} flexDirection={"column"}>
+					<Grid size={{ xs: 12, md: 6, lg: 4 }} flexDirection={"column"}>
 						<SidebarComponent />
 					</Grid>
 				</Grid>

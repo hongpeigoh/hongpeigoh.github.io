@@ -31,7 +31,7 @@ export const Home = () => {
 			<Box sx={bannerBoxStyle} data-aos="fade-in">
 				<Container maxWidth="md">
 					<Grid container spacing={2}>
-						<Grid item xs={12} sm={6}>
+						<Grid size={{ xs: 12, sm: 6 }}>
 							<Typography variant="h4" align="justify" data-aos="fade-up">
 								{introductionData.welcome}
 							</Typography>
@@ -60,7 +60,7 @@ export const Home = () => {
 			<Box sx={experienceBoxStyle}>
 				<Container maxWidth="md">
 					<Grid container spacing={2}>
-						<Grid item xs={12}>
+						<Grid size={{ xs: 12 }}>
 							<Typography
 								variant="h4"
 								align="justify"
@@ -71,7 +71,7 @@ export const Home = () => {
 							</Typography>
 						</Grid>
 						{experienceData.map((experience) => (
-							<Grid item xs={12} key={experience.duration}>
+							<Grid size={{ xs: 12 }} key={experience.duration}>
 								<ExperienceCard {...experience} />
 							</Grid>
 						))}
@@ -81,7 +81,7 @@ export const Home = () => {
 			<Box sx={educationBoxStyle}>
 				<Container maxWidth="md">
 					<Grid container spacing={2}>
-						<Grid item xs={12}>
+						<Grid size={{ xs: 12, sm: 6 }}>
 							<Typography
 								variant="h4"
 								align="justify"
@@ -92,7 +92,7 @@ export const Home = () => {
 							</Typography>
 						</Grid>
 						{educationData.map((education) => (
-							<Grid item xs={12} key={education.duration}>
+							<Grid size={{ xs: 12 }} key={education.duration}>
 								<EducationCard {...education} />
 							</Grid>
 						))}
@@ -102,7 +102,7 @@ export const Home = () => {
 			<Box sx={projectsBoxStyle}>
 				<Container maxWidth="md">
 					<Grid container spacing={2}>
-						<Grid item xs={12}>
+						<Grid size={{ xs: 12 }}>
 							<Typography
 								variant="h4"
 								align="justify"
@@ -113,7 +113,7 @@ export const Home = () => {
 							</Typography>
 						</Grid>
 						{projectData.map((project) => (
-							<Grid item xs={12} sm={6} key={project.title}>
+							<Grid size={{ xs: 12, sm: 6 }} key={project.title}>
 								<ProjectCard {...project} />
 							</Grid>
 						))}
@@ -123,7 +123,7 @@ export const Home = () => {
 			<Box sx={miscBoxStyle}>
 				<Container maxWidth="md">
 					<Grid container spacing={2}>
-						<Grid item xs={12}>
+						<Grid size={{ xs: 12 }}>
 							<Typography
 								variant="h3"
 								align="justify"
@@ -134,7 +134,7 @@ export const Home = () => {
 							</Typography>
 						</Grid>
 						{miscData.map((misc) => (
-							<Grid item xs={12} sm={6} key={misc.title}>
+							<Grid size={{ xs: 12, sm: 6 }} key={misc.title}>
 								<MiscCard {...misc} />
 							</Grid>
 						))}
