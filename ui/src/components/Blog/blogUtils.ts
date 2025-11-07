@@ -42,7 +42,7 @@ export const getPostBySlug = async (
       slug,
       content: parsed.body,
     };
-  } catch (err) {
+  } catch (_err) {
     return undefined;
   }
 };

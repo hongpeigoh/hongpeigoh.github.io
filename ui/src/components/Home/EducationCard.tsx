@@ -25,7 +25,7 @@ const DetailList = (props: DetailListProps) => {
   return (
     <List>
       {details.map((detail) => (
-        <ListItem dense style={{ paddingBottom: 0 }}>
+        <ListItem dense style={{ paddingBottom: 0 }} key={detail}>
           <ListItemText
             primary={
               <Typography variant="body2" align="justify" color={basec}>

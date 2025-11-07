@@ -15,11 +15,11 @@ import {
   ReactOriginalWordmark,
   ReduxOriginal,
   SpringOriginalWordmark,
-  TailwindcssPlain,
+  TailwindcssPlainWordmark,
   TypescriptOriginal,
 } from "devicons-react";
 
-export const mapTechToIcon = new Map<string, JSX.Element>();
+export const mapTechToIcon = new Map<string, React.JSX.Element>();
 mapTechToIcon.set(
   "aip",
   <img src="/aip.png" width={30} height={30} alt={"aip-logo"} />,
@@ -44,5 +44,5 @@ mapTechToIcon.set("python", <PythonOriginalWordmark size={30} />);
 mapTechToIcon.set("react", <ReactOriginalWordmark size={30} />);
 mapTechToIcon.set("redux", <ReduxOriginal size={30} />);
 mapTechToIcon.set("spring", <SpringOriginalWordmark size={30} />);
-mapTechToIcon.set("tailwind", <TailwindcssPlain size={30} />);
+mapTechToIcon.set("tailwind", <TailwindcssPlainWordmark size={30} />);
 mapTechToIcon.set("typescript", <TypescriptOriginal size={30} />);

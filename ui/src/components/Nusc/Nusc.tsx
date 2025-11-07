@@ -119,7 +119,7 @@ export const Nusc = () => {
   const [show, setShow] = useState(true);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value.replaceAll("\n", " ").toUpperCase());
   };
 

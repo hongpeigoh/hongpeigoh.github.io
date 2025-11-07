@@ -15,7 +15,7 @@ interface ProjectCardProps {
   href: string;
   label: string;
   text: string;
-  tech: any[];
+  tech: string[];
 }
 
 export const ProjectCard = (props: ProjectCardProps) => {

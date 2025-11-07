@@ -26,7 +26,7 @@ const TechIcon = styled(Paper)(() => ({
 
 interface DetailListProps {
   details: string[];
-  tech: any[];
+  tech: string[];
 }
 
 const DetailList = (props: DetailListProps) => {
