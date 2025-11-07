@@ -12,7 +12,7 @@ const postSlugs = ["250613_1"];
 export const getAllPosts = async (): Promise<BlogPost[]> => {
   const posts = await Promise.all(
     postSlugs.map(async (slug) => {
-      const res = await fetch(`${process.env.PUBLIC_URL}/posts/${slug}.md`);
+      const res = await fetch(`/posts/${slug}.md`);
       const raw = await res.text();
       const parsed = fm<{ title: string; date: string; slug: string }>(raw);
 
@@ -32,7 +32,7 @@ export const getPostBySlug = async (
   slug: string,
 ): Promise<BlogPost | undefined> => {
   try {
-    const res = await fetch(`${process.env.PUBLIC_URL}/posts/${slug}.md`);
+    const res = await fetch(`/posts/${slug}.md`);
     const raw = await res.text();
     const parsed = fm<{ title: string; date: string; slug: string }>(raw);
     if (parsed.attributes.title === undefined) return undefined;
