@@ -1,54 +1,54 @@
 import { basec, light, secon, white } from "./Colors";
 
 export const baseBoxStyle = {
-  minHeight: "30vh",
-  width: "100%",
-  py: 5,
-  // border: "solid 1px red",
-  display: "flex",
-  alignItems: "start",
+	minHeight: "30vh",
+	width: "100%",
+	py: 5,
+	// border: "solid 1px red",
+	display: "flex",
+	alignItems: "start",
 };
 
 export const bannerBoxStyle = {
-  ...baseBoxStyle,
-  minHeight: "100vh",
-  alignItems: "center",
-  py: 0,
+	...baseBoxStyle,
+	minHeight: "100vh",
+	alignItems: "center",
+	py: 0,
 };
 export const experienceBoxStyle = {
-  ...baseBoxStyle,
-  backgroundColor: secon,
+	...baseBoxStyle,
+	backgroundColor: secon,
 };
 export const educationBoxStyle = {
-  ...baseBoxStyle,
-  backgroundColor: light,
-  color: basec,
+	...baseBoxStyle,
+	backgroundColor: light,
+	color: basec,
 };
 export const projectsBoxStyle = {
-  ...baseBoxStyle,
+	...baseBoxStyle,
 };
 export const miscBoxStyle = {
-  ...baseBoxStyle,
+	...baseBoxStyle,
 };
 
 export const baseCardStyle = {
-  background: "transparent",
-  boxShadow: "none",
+	background: "transparent",
+	boxShadow: "none",
 };
 export const experienceCardStyle = {
-  ...baseCardStyle,
-  color: white,
+	...baseCardStyle,
+	color: white,
 };
 export const educationCardStyle = {
-  ...baseCardStyle,
+	...baseCardStyle,
 };
 export const projectCardStyle = {
-  ...baseCardStyle,
-  backgroundColor: white,
-  borderRadius: 2,
+	...baseCardStyle,
+	backgroundColor: white,
+	borderRadius: 2,
 };
 export const miscCardStyle = {
-  ...baseCardStyle,
-  backgroundColor: white,
-  borderRadius: 2,
+	...baseCardStyle,
+	backgroundColor: white,
+	borderRadius: 2,
 };

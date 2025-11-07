@@ -1,1 +1,1 @@
-export const Fallback = () => <div>Fallback</div>
+export const Fallback = () => <div>Fallback</div>;
