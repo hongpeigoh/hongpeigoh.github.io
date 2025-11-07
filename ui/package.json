@@ -33,7 +33,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "preinstall": "npx only-allow pnpm",
+    "predeploy": "pnpm run build",
     "deploy": "gh-pages -d build",
     "postdeploy": "serve -s build",
     "start": "react-scripts start",
