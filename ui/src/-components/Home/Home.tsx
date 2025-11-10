@@ -5,7 +5,7 @@ import {
   experienceBoxStyle,
   miscBoxStyle,
   projectsBoxStyle,
-} from "../../styles/Home";
+} from "../../-styles/Home";
 import { EducationCard } from "./EducationCard";
 import { ExperienceCard } from "./ExperienceCard";
 import { MiscCard } from "./MiscCard";

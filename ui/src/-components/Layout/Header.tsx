@@ -1,6 +1,6 @@
 import { Box, Tab, Tabs } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
-import { headerStyle } from "../../styles/Layout";
+import { Link, useLocation } from "@tanstack/react-router";
+import { headerStyle } from "../../-styles/Layout";
 
 export const Header = () => {
   const location = useLocation();

@@ -11,8 +11,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { basec } from "../../styles/Colors";
-import { educationCardStyle } from "../../styles/Home";
+import { basec } from "../../-styles/Colors";
+import { educationCardStyle } from "../../-styles/Home";
 import { ExpandMore } from "./ExpandMore";
 
 interface DetailListProps {

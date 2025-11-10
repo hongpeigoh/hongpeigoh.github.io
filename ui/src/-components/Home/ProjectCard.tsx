@@ -4,8 +4,8 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { greyc } from "../../styles/Colors";
-import { projectCardStyle } from "../../styles/Home";
+import { greyc } from "../../-styles/Colors";
+import { projectCardStyle } from "../../-styles/Home";
 
 interface ProjectCardProps {
   imgUrl: string;

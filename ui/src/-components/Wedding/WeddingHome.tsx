@@ -13,12 +13,12 @@ import {
 } from "@mui/material";
 import type React from "react";
 import { useEffect, useState } from "react";
-import { greyc, white } from "../../styles/Colors";
+import { greyc, white } from "../../-styles/Colors";
 import {
   weddingContainer,
   weddingRightPanel,
   weddingSlideshow,
-} from "../../styles/Wedding";
+} from "../../-styles/Wedding";
 import { WeddingRsvp } from "./WeddingRsvp";
 import { WeddingSaveTheDate } from "./WeddingSaveTheDate";
 

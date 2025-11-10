@@ -1,6 +1,6 @@
 import { Copyright } from "@mui/icons-material";
 import { Box, Container, Typography } from "@mui/material";
-import { footerStyle } from "../../styles/Layout";
+import { footerStyle } from "../../-styles/Layout";
 
 export const Footer = () => (
   <Box component="footer" sx={footerStyle}>

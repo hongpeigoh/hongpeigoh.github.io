@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import { Outlet } from "react-router-dom";
-import { viewportStyle } from "../../styles/Layout";
+import { Outlet } from "@tanstack/react-router";
+import { viewportStyle } from "../../-styles/Layout";
 
 export const Layout = () => (
   <Box sx={viewportStyle}>

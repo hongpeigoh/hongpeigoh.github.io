@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig, loadEnv, type Plugin } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
@@ -9,6 +10,10 @@ export default defineConfig(({ mode }) => {
   setEnv(mode);
   return {
     plugins: [
+      tanstackRouter({
+        target: "react",
+        autoCodeSplitting: true,
+      }),
       react(),
       tsconfigPaths(),
       envPlugin(),

@@ -1,7 +1,7 @@
 import { OpenInNewOutlined } from "@mui/icons-material";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
-import { greyc } from "../../styles/Colors";
+import { greyc } from "../../-styles/Colors";
 
 export const WeddingSaveTheDate = () => (
   <Box sx={{ textAlign: "center", mt: 4, pt: 2 }}>

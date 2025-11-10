@@ -1,12 +1,12 @@
 import { Container, Typography } from "@mui/material";
+import { useParams } from "@tanstack/react-router";
 import { marked } from "marked";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { blogContainerStyle } from "../../styles/Blog";
+import { blogContainerStyle } from "../../-styles/Blog";
 import { type BlogPost, getPostBySlug } from "./blogUtils";
 
 export const BlogPage = () => {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams({ from: "/" });
   const [post, setPost] = useState<BlogPost | null>(null);
   const [html, setHtml] = useState<string>("");
   useEffect(() => {

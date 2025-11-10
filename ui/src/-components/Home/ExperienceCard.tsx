@@ -13,7 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { experienceCardStyle } from "../../styles/Home";
+import { experienceCardStyle } from "../../-styles/Home";
 import { ExpandMore } from "./ExpandMore";
 import { mapTechToIcon } from "./mapper/maps";
 

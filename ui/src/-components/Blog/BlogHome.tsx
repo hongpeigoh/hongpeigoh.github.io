@@ -1,7 +1,7 @@
 import { Container, List, ListItemButton, Typography } from "@mui/material";
+import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { blogContainerStyle } from "../../styles/Blog";
+import { blogContainerStyle } from "../../-styles/Blog";
 import { type BlogPost, getAllPosts } from "./blogUtils";
 
 export const BlogHome = () => {

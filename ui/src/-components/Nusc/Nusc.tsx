@@ -31,7 +31,7 @@ import {
   textboxContainerRightStyle,
   textboxLeftStyle,
   textboxRightStyle,
-} from "../../styles/Nusc";
+} from "../../-styles/Nusc";
 
 enum ISize {
   small = "small",
