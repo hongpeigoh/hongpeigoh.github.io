@@ -6,7 +6,7 @@ export const Footer = () => (
   <Box component="footer" sx={footerStyle}>
     <Container maxWidth="sm">
       <Typography variant="subtitle1">
-        <Copyright fontSize="small" /> Created by Goh Hong Pei. 2023.
+        <Copyright fontSize="small" /> Created by Goh Hong Pei. 2025.
       </Typography>
     </Container>
   </Box>

@@ -16,6 +16,8 @@ export const WeddingSaveTheDate = () => (
     </Typography>
 
     <Typography variant="body1" sx={{ mt: 1 }} gutterBottom>
+      Atrium Ballroom • Level 5
+      <br />
       PARKROYAL COLLECTION Marina Bay
       <br />6 Raffles Blvd, Singapore 039594
     </Typography>

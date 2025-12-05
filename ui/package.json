@@ -1,7 +1,6 @@
 {
   "name": "ui",
   "version": "0.1.0",
-  "homepage": "https://hongpeigoh.com",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -36,7 +35,8 @@
     "preinstall": "npx only-allow pnpm",
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -d build",
-    "postdeploy": "serve -s build",
+    "postdeploy": "vite preview",
+    "preview": "vite preview",
     "start": "vite",
     "build": "vite build",
     "lint": "pnpm exec biome check --write",

@@ -19,6 +19,7 @@ import {
   weddingRightPanel,
   weddingSlideshow,
 } from "../../-styles/Wedding";
+import { WeddingProgrammes } from "./WeddingProgrammes";
 import { WeddingRsvp } from "./WeddingRsvp";
 import { WeddingSaveTheDate } from "./WeddingSaveTheDate";
 
@@ -160,27 +161,23 @@ const SidebarComponent = () => {
         aria-label="Sidebar Tabs"
         variant="fullWidth"
       >
+        <Tab label="Programmes" />
         <Tab label="Save the Date" />
         <Tab label="RSVP" />
-        {/* <Tab label="Programmes" disabled /> */}
       </Tabs>
 
-      {tabIndex === 0 && <WeddingSaveTheDate />}
-      {tabIndex === 1 && <WeddingRsvp />}
-      {tabIndex === 2 && (
-        <Typography variant="h6">Watch this space!</Typography>
-      )}
+      {tabIndex === 0 && <WeddingProgrammes />}
+      {tabIndex === 1 && <WeddingSaveTheDate />}
+      {tabIndex === 2 && <WeddingRsvp />}
     </Box>
   );
 };
 
 export const WeddingHome = () => {
-  useEffect(() => {
-    document.title = "Hong Pei and Michelle's Wedding";
-  }, []);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <title>Hong Pei and Michelle's Wedding</title>
       <Box sx={weddingContainer}>
         <Grid container spacing={0}>
           <Grid size={{ xs: 12, md: 6, lg: 8 }}>

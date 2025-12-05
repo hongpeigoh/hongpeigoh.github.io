@@ -13,7 +13,6 @@ export const BlogPage = () => {
     const fetchPost = async () => {
       if (slug) {
         const result = await getPostBySlug(slug);
-        console.log(result);
         if (result) {
           setPost(result);
           const htmlContent = await marked.parse(result.content);

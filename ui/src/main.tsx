@@ -1,5 +1,9 @@
 import { CssBaseline } from "@mui/material";
-import { createRouter, RouterProvider } from "@tanstack/react-router";
+import {
+  createHashHistory,
+  createRouter,
+  RouterProvider,
+} from "@tanstack/react-router";
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
@@ -10,6 +14,8 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
+const hashHistory = createHashHistory();
+
 // Create a new router instance
 const router = createRouter({
   routeTree,
@@ -18,6 +24,7 @@ const router = createRouter({
   scrollRestoration: true,
   defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
+  history: hashHistory,
 });
 
 // Register the router instance for type safety

@@ -19,7 +19,16 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Hong Pei's Website</title>
     <meta name="Description" content="Welcome to Hong Pei's website!" />
-  <script type="module" src="src/main.tsx"></script></head>
+    <script type="module" src="src/main.tsx"></script>
+    <!-- Redirect -->
+    <script type="text/javascript">
+      (() => {
+        const { pathname, search, hash } = window.location;
+        if (hash.startsWith('#/') || pathname === '/' || pathname === '/index.html') return;
+        window.location.replace(`/#${pathname}${search}${hash}`);
+      })();
+    </script>
+  </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="app" class="App"></div>

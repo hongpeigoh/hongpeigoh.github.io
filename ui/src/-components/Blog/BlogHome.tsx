@@ -11,7 +11,6 @@ export const BlogHome = () => {
   useEffect(() => {
     const loadPosts = async () => {
       const result = await getAllPosts();
-      console.log(result);
       setPosts(result);
       setLoading(false);
     };
