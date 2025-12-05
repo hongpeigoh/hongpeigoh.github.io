@@ -1,0 +1,1 @@
+const e=`#282C34`,t=`#002F7A`,n=`#FFFCE8`,r=`#7D8491`,i=`#FFFFFF`;export{i as a,t as i,r as n,n as r,e as t};

@@ -1,0 +1,1 @@
+import{Mt as e,Ut as t}from"./index-DjIYh1rc.js";var n=t(e()),r=()=>(0,n.jsx)(`div`,{children:`About`});export{r as component};
