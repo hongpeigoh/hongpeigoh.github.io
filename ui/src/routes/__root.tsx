@@ -17,17 +17,6 @@ export const Route = createRootRoute({
     return (
       <Box sx={viewportStyle}>
         <Outlet />
-        <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
-          plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
       </Box>
     );
   },
