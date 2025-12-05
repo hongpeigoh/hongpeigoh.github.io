@@ -34,7 +34,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "postdeploy": "vite preview",
     "preview": "vite preview",
     "start": "vite",
